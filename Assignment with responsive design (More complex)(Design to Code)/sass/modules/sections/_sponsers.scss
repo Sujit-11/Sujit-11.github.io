@@ -1,0 +1,13 @@
+.break{
+    background: rgba(255, 255, 255, 0.20);
+    
+    &__sponser{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 24px 36px;
+    }
+    @media screen and (width <=575px) {
+        display: none;
+    }
+}
