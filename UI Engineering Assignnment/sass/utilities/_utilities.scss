@@ -1,0 +1,44 @@
+.container {
+    padding: 0 24px;
+
+    @media screen and (min-width: 992px) {
+      padding: 0 36px;
+      margin: 0 auto;
+    }
+    @media screen and (min-width: 1440px) {
+      padding: 0;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  }
+.bg-primary{
+  background-image: url(/images/background/unsplash_SfDofjXtxHE.png);
+  background-size: 1440px 1440px;
+}
+
+.blue{
+  color: $sky-blue;
+}
+
+.title{
+  color: var(--Pure, #FFF);
+  font-family: Montserrat;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  @media screen and (min-width:768px) {
+    font-size: 24px;
+    
+  }
+}
+
+.font-basic{
+  font-size: 24px;
+  @media screen and (min-width:575px){
+    font-size: 36px;
+  }
+  @media screen and (min-width:992px){
+    font-size: 48px;
+  }
+}

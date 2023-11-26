@@ -1,0 +1,55 @@
+.getvac {
+    padding: 50px;
+    &__content {
+      display: flex;
+      flex-direction: column;
+    }
+    &__box.special {
+        width: 276px;
+        height: 280px;
+        border-radius: 20px 80px 20px 20px;
+        background: rgba(196, 196, 196, 0.2);
+
+        @media only screen and (min-width: 992px)  {
+            width: 449.064px;
+            height: 498.961px;
+            flex-shrink: 0;
+            
+            border-radius: 49.896px 149.688px 49.896px 49.896px;
+        }
+    }
+    &__box {
+      padding: 2rem;
+      border-radius: 49.896px;
+      border: 2.994px solid rgba(255, 255, 255, 0.5);
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .getvac {
+        
+        &__flex1 {
+            display: flex;
+            flex-direction: column;
+            gap: 10 rem;
+          }
+          &__flex2 {
+            display: flex;
+            gap: 4rem;
+          }
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+    .getvac {
+        flex-direction: row;
+        &__content{
+            flex-direction: row;
+            // justify-content: center;
+            align-items: center;
+            gap: 4rem;
+        }
+      &__flex1 {
+        flex-direction: row;
+      }
+    }
+  }

@@ -1,0 +1,61 @@
+.header{
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    padding-top:10px;
+    &__logo {
+        margin: 0 ;
+        color: $white;
+        font-family: $font-family;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      &__nav {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        gap: 1em;
+        max-width: 100%;
+        display: none;
+      }
+      &__nav--item {
+        font-size: 24px;
+        color: $body-text-color;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+      &__ham{
+        padding-top: 1rem;
+        background:transparent;
+        cursor: pointer;
+        // display: none;
+      }
+      button{
+        display: none;
+      }
+      // Tablet
+  @media screen and (min-width: 575px) {
+    &__logo {
+      font-size: 26px;
+      }
+  }
+  //Desktop
+  @media screen and (min-width: 992px) {
+    &__logo {
+      font-size: 32px;
+      }
+      &__nav {
+        display: flex;
+      }
+      &__ham{
+        display: none;
+      }
+      button{
+        display: initial;
+      }
+  }
+}

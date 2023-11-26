@@ -1,0 +1,24 @@
+// Defines variables , colors and font sizes
+
+$font-family: "Montserrat", sans-serif;
+
+// font sizes
+$base-font-size: 16px;
+$heading-font-size: 40px;
+$card-title-font-size: 20px;
+
+// colors
+$primary-color: #0b153c;
+$white: #ffffff;
+$black: #1d1c31;
+$sky-blue: #17C2EC;
+$body-text-color: transparentize($white, 0.7);
+
+$link-color: $black;
+$fade-white:#B6B3EB;
+
+
+// spacings
+$title-margin-bottom: 40px;
+$card-items-spacing: 32px;
+
