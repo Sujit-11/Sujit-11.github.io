@@ -1113,6 +1113,83 @@ button {
     justify-content: space-between;
   }
 }
+.quote {
+  background-color: #17c2ec;
+  color: white;
+  position: absolute;
+  text-align: center;
+  padding: 2rem;
+  width: 50%;
+  margin-top: -54vh;
+  margin-left: 20%;
+  border-radius: 10px;
+}
+.quote__email {
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+}
+.quote__email input {
+  background-color: #fff;
+}
+.quote__email div {
+  background-color: #0b153c;
+}
+.quote h2 {
+  color: #ffffff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media screen and (min-width: 768px) {
+  .quote h2 {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .quote h2 {
+    font-size: 24px;
+  }
+}
+.quote p {
+  color: #ffffff;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+@media screen and (min-width: 768px) {
+  .quote p {
+    margin: 0.5rem 0;
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .quote p {
+    margin: 0;
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .quote {
+    width: 50%;
+    margin-top: -54vh;
+    margin-left: 20%;
+    border-radius: 10px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .quote {
+    width: 50%;
+    margin-top: -34vh;
+    margin-left: 20%;
+    border-radius: 10px;
+  }
+}
+
 .btn {
   padding: 20px 25px;
   font: "Montserrat", sans-serif;
