@@ -332,6 +332,10 @@ template {
   background-size: 1440px 1440px;
 }
 
+.card-bg {
+  background: #17C2EC !important;
+}
+
 .blue {
   color: #17C2EC;
 }
@@ -404,13 +408,15 @@ button {
 
 .header {
   position: fixed;
+  left: 0;
   display: flex;
   overflow: hidden;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10px;
+  padding: 1rem 30px 1rem 0;
   width: 100%;
   background: #0B153C;
+  z-index: 100;
 }
 .header__logo {
   margin: 0;
@@ -450,6 +456,9 @@ button {
   }
 }
 @media screen and (min-width: 992px) {
+  .header {
+    justify-content: space-around;
+  }
   .header__logo {
     font-size: 32px;
   }
@@ -836,9 +845,10 @@ button {
 }
 .registration__wrap {
   width: 100%;
+  padding: 2rem 0;
 }
 .registration__wrap img {
-  width: 100%;
+  max-width: 100%;
 }
 .registration__select-option {
   display: flex;
@@ -1050,12 +1060,13 @@ button {
   grid-template-columns: auto;
   row-gap: 3rem;
   justify-content: center;
-  padding-bottom: 158px;
+  padding-bottom: 15rem;
 }
 .feedback__card {
   border-radius: 20px;
   background: rgba(196, 196, 196, 0.5);
   padding: 2.5rem;
+  height: 10rem;
   max-width: 20rem;
 }
 .feedback__patient_info {
@@ -1081,6 +1092,7 @@ button {
   text-align: left;
   color: rgba(255, 255, 255, 0.5);
   padding-top: 10rem;
+  padding-bottom: 1rem;
   margin-top: 50px;
 }
 .footer__links {
@@ -1095,6 +1107,20 @@ button {
 .footer__links li a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.5);
+}
+.footer__icons img {
+  width: 18px;
+  aspect-ratio: 1;
+}
+@media screen and (min-width: 768px) {
+  .footer__icons img {
+    width: 30px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .footer__icons img {
+    width: 50px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -1151,6 +1177,7 @@ button {
 }
 .quote__email input {
   background-color: #ffffff;
+  padding: 2rem;
   width: 80%;
   border-radius: 30px 0px 0px 30px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
