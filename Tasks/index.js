@@ -51,8 +51,6 @@
       const todoItem = document.createElement("div");
       todoItem.classList.add("todo-item");
   
-      const todoHeader = document.createElement("h2");
-      todoHeader.textContent = "Tasks";
 
       const todoTitle = document.createElement("h4");
       todoTitle.textContent = title;
@@ -72,7 +70,6 @@
         moveTask(todoItem, remainingField);
       });
   
-      todoItem.appendChild(todoHeader);
       todoItem.appendChild(todoTitle);
       todoItem.appendChild(todoDesc);
       todoItem.appendChild(completeButton);

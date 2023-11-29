@@ -17,44 +17,42 @@ ul {
 
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
   align-items: center;
 }
 .header__nav {
   margin: 0 auto;
+  width: 100%;
   padding: 1rem;
-  width: 50%;
   border-bottom: 1px solid #00A67E;
   display: flex;
   justify-content: space-around;
 }
+@media screen and (min-width: 768px) {
+  .header__nav {
+    font-size: 1.5rem;
+    width: 50%;
+  }
+}
 .header__nav--item {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
 }
-.header__plus {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background-color: #00A67E;
-  color: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.header__plus i {
-  font-size: 2em;
-  font-weight: bold;
+@media screen and (min-width: 768px) {
+  .header__nav--item {
+    font-size: 1.5rem;
+  }
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  align-items: center;
 }
 
 .addTodo {
+  width: 60%;
   margin-bottom: 1rem;
 }
 .addTodo h3 {
@@ -65,6 +63,7 @@ ul {
 .addTodo__form {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 .addTodo__form--title, .addTodo__form--desc {
   padding: 0.5rem;
