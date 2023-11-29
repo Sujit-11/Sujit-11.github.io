@@ -1,7 +1,8 @@
 .hero{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 5rem;
+    // justify-content: space-between;
     padding-top: 45px;
     &__left{
         max-width: 100%;
@@ -41,8 +42,10 @@
     &__right{
         max-width: 100%;
         justify-content: center;
+        // object-fit: cover;
         img{
             width: 100%;
+            // object-fit: contain;
         }
     } 
 

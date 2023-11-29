@@ -1,9 +1,12 @@
 .header{
+    position: fixed;
     display: flex;
     overflow: hidden;
     justify-content: space-between;
     align-items: center;
     padding-top:10px;
+    width: 100%;
+    background: #0B153C;
     &__logo {
         margin: 0 ;
         color: $white;
