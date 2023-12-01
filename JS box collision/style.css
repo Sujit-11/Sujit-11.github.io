@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#viewport
+{
+border: 1px solid #000;
+position: relative;
+margin: 10vh auto;
+
+}
+
+.ball{
+    background-color:blue;
+    position: absolute;
+    border-radius: 50%;
+
+}
