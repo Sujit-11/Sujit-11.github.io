@@ -1,7 +1,6 @@
-const BALL_COUNT = 20;
-const SPEED = 5;
+const BALL_COUNT = 50;
+const SPEED = 2;
 
-const VIEW_PORT_WIDTH = 500;
-const VIEW_PORT_HEIGHT = 500;
+const VIEW_PORT_WIDTH = 550;
+const VIEW_PORT_HEIGHT = 550;
 
-const BALL_RADIUS = 10;
