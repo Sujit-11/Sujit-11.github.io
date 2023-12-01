@@ -6,14 +6,14 @@ viewport.style.width=`${VIEW_PORT_WIDTH}px`;
 
 for (i=0; i < BALL_COUNT; i++){
     const radius = getRandomNumber(4,10);
-    let ballWidth =radius * 2;
+    const ballWidth =radius * 2;
     const posX = getRandomNumber(0, VIEW_PORT_WIDTH - ballWidth);
     const posY = getRandomNumber(0, VIEW_PORT_HEIGHT - ballWidth);
     const randomColor = getRandomColor();
     const dx = getRandomNumber(-1,1);
     const dy = getRandomNumber(-1,1);
     // Creating new instance of Ball
-    let ball = new Ball(posX,posY,radius,dx,dy,randomColor);
+    const ball = new Ball(posX,posY,radius,dx,dy,randomColor);
     
     ballArray.push(ball);
     viewport.appendChild(ball.getElement());
