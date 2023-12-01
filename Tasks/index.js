@@ -22,8 +22,10 @@
         alert("Please enter a task title");
         return;
       }
-  
-      const todoItem = createTodoItem(title, description);
+
+      const isRemaining = remainingNavItem.classList.contains("active");
+      const isCompleted = completedNavItem.classList.contains("active");
+      const todoItem = createTodoItem(title, description, isRemaining,isCompleted);
       remainingField.appendChild(todoItem);
   
       // Clear input fields after adding a task
@@ -47,7 +49,7 @@
       completedField.style.display = "none";
     });
   
-    function createTodoItem(title, description) {
+    function createTodoItem(title, description, isRemaining ,isCompleted) {
       const todoItem = document.createElement("div");
       todoItem.classList.add("todo-item");
   
@@ -58,22 +60,66 @@
       const todoDesc = document.createElement("p");
       todoDesc.textContent = description;
   
-      const completeButton = document.createElement("button");
-      completeButton.textContent = "Mark as Completed";
-      completeButton.addEventListener("click", function () {
-        moveTask(todoItem, completedField);
-      });
+      // const completeButton = document.createElement("button");
+      // completeButton.textContent = "Mark as Completed";
+      // completeButton.addEventListener("click", function () {
+      //   moveTask(todoItem, completedField);
+      // });
+
+      if(isRemaining){
+        const completeCheckbox = document.createElement("input");
+        completeCheckbox.type = "checkbox";
+        completeCheckbox.id = "completeCheckbox"; // Set a unique ID for the checkbox if needed
+        completeCheckbox.addEventListener("change", function () {
+            if (completeCheckbox.checked) {
+                moveTask(todoItem, completedField);
+            }
+        });
+        
+        const completeLabel = document.createElement("label");
+        completeLabel.htmlFor = "completeCheckbox";
+        completeLabel.textContent = "Mark as Completed";
+
+        todoItem.appendChild(completeLabel);
+        todoItem.appendChild(completeCheckbox);
+        
+      }
+      
+      if(isCompleted){
+        const remainingCheckbox = document.createElement("input");
+        remainingCheckbox.type = "checkbox";
+        remainingCheckbox.id = "remainingCheckbox"; // Set a unique ID for the checkbox if needed
+        remainingCheckbox.addEventListener("change", function () {
+            if (remainingCheckbox.checked) {
+                moveTask(todoItem, remainingField);
+            }
+        });
+        
+        const remainingLabel = document.createElement("label");
+        remainingLabel.htmlFor = "remainingCheckbox";
+        remainingLabel.textContent = "Mark as Remaining";
+
+        todoItem.appendChild(remainingLabel);
+        todoItem.appendChild(remainingCheckbox);
+
+        
+        
+      }
+
+      
+      
+      
   
-      const remainingButton = document.createElement("button");
-      remainingButton.textContent = "Mark as Remaining";
-      remainingButton.addEventListener("click", function () {
-        moveTask(todoItem, remainingField);
-      });
+      // const remainingButton = document.createElement("button");
+      // remainingButton.textContent = "Mark as Remaining";
+      // remainingButton.addEventListener("click", function () {
+      //   moveTask(todoItem, remainingField);
+      // });
   
       todoItem.appendChild(todoTitle);
       todoItem.appendChild(todoDesc);
-      todoItem.appendChild(completeButton);
-      todoItem.appendChild(remainingButton);
+      
+      
   
       return todoItem;
     }
