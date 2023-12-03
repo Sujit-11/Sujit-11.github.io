@@ -61,40 +61,6 @@
         padding: 2.5rem;
         height: 10rem;
         max-width: 20rem;
-        // position: relative;
-        // // z-index: 4;
-        // &::before {
-        //   content: "";
-        //   // padding: 0;
-        //   background-image: url("../images/medicine.png");
-        //   background-repeat: no repeat;
-        //   position: absolute;
-        //   background-size:cover ;
-        //   top: -10%;
-        //   left: 30%;
-        //   bottom: 20%;
-        //   z-index: -1;
-        //   img{
-        //     max-width: 100%;
-        //   }
-        //   // width: 70%;
-        //   @media screen and (min-width: 768px) {
-        //     // width: 175px;
-        //     top: 0;
-        //     top: -15%;
-        //     left: 25%;
-        //     bottom: 20%;
-        //     // height: 200px;
-        //   }
-        //   @media screen and (min-width: 992px) {
-        //     top: -40%;
-        //     left: 20%;
-        //     bottom: 20%;
-        //     z-index: -1;
-        //     // height:300px
-        //     // width: 295px;
-        //   }
-        // }
       }
       &__patient_info {
         display: flex;
