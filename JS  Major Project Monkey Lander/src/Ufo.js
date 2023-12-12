@@ -8,6 +8,45 @@ class Ufo {
 
     this.position = { x: 90, y: -10 }
 
+    this.ellipse = [
+      {
+        x: this.position.x + this.width / 2,
+        y: this.position.y + this.height / 2 + 7,
+        radiusX: 78, // horizontal radius
+        radiusY: 32, // vertical radius
+        rotn: 0,
+        startAngle: 0,
+        endAngle: 2 * Math.PI,
+      },
+      {
+        x: this.position.x + this.width / 2,
+        y: this.position.y + 32,
+        radiusX: 45, // horizontal radius
+        radiusY: 32, // vertical radius
+        rotn: 0,
+        startAngle: 0,
+        endAngle: 2 * Math.PI,
+      },
+      {
+        x: this.position.x + 42,
+        y: this.position.y + 100,
+        radiusX: 12, // horizontal radius
+        radiusY: 4, // vertical radius
+        rotn: (Math.PI / 180) * 25,
+        startAngle: 0,
+        endAngle: 2 * Math.PI,
+      },
+      {
+        x: this.position.x + 145,
+        y: this.position.y + 100,
+        radiusX: 12, // horizontal radius
+        radiusY: 4, // vertical radius
+        rotn: (Math.PI / 180) * 335,
+        startAngle: 0,
+        endAngle: 2 * Math.PI,
+      }
+    ]
+
     this.ufoImage = new Image()
     this.ufoImage.src = '../assets/images/character/ufo.png'
     
@@ -19,10 +58,10 @@ class Ufo {
     this.verticalSpeedFactor = 0.05
 
     this.gravitySpeed = 0
-    this.gravity = 0.001
+    this.gravity = 0.01
     this.landingClock = 0
   }
-  update(ctx, backgroundImg) {
+  draw(ctx,backgroundImg){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height)
     ctx.drawImage(
@@ -36,9 +75,38 @@ class Ufo {
       191.6,
       105
     )
+    const drawBoundingEllipse = (i) => {
+      ctx.beginPath()
+      ctx.ellipse(
+        this.ellipse[i].x,
+        this.ellipse[i].y,
+        this.ellipse[i].radiusX,
+        this.ellipse[i].radiusY,
+        this.ellipse[i].rotn,
+        this.ellipse[i].startAngle,
+        this.ellipse[i].endAngle
+      )
+      ctx.strokeStyle = 'purple'
+      ctx.stroke()
+    }
+    for (let i = 0; i <= this.ellipse.length - 1; i++) {
+      drawBoundingEllipse(i)
+    }
 
+  }
+  update(ctx,backgroundImg) {
+    this.draw(ctx,backgroundImg)
+    this.ellipse.forEach(element =>{
+      element.y += this.gravitySpeed+this.verticalSpeed
+      element.x += this.horizontalSpeed * this.movementFactor
+    })
     this.position.y += this.gravitySpeed + this.verticalSpeed
     this.gravitySpeed += this.gravity
+
+    /**Check Collision */ 
+
+    checkCollision();
+
     // this.velocity.y += this.gravity
     if (keyUp) {
       this.up()

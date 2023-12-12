@@ -1,4 +1,5 @@
 const ufo = new Ufo();
+const landingSpace = new LandingSpace();
 const life = new Life();
 const remBanana = new BananaLeft();
 const platform = new LandingSpace();
