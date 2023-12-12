@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap");
+@font-face {
+  font-family: Nunito;
+  src: url("./assets/fonts/Nunito-Regular.ttf");
+}
+
+@font-face {
+  font-family: Nunito-Bold;
+  src: url("./assets/fonts/Nunito-Bold.ttf");
+}
+
+@font-face {
+  font-family: Nunito-ExtraBold;
+  src: url("./assets/fonts/Nunito-ExtraBold.ttf");
+}
+
+body{
+    height: 100vh;
+    background-color: darkgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+/* #canvas{
+    
+} */
