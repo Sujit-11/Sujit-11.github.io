@@ -1,6 +1,7 @@
 class Ufo {
   constructor() {
     this.canPlay=true
+    this.fuel = new Fuel()
     this.width = 191.6
     this.height = 105
 

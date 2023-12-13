@@ -1,8 +1,8 @@
 const ufo = new Ufo();
-const landingSpace = new LandingSpace();
 const life = new Life();
 const remBanana = new BananaLeft();
 const platform = new LandingSpace();
+const fuel = new Fuel();
 
 
 function animate(){
@@ -10,6 +10,7 @@ function animate(){
     life.update(ctx)
     remBanana.update(ctx)
     platform.update(ctx)
+    fuel.update(ctx)
     requestAnimationFrame(animate)
 }
 animate()

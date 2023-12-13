@@ -5,12 +5,15 @@ document.addEventListener('keydown', (e) => {
   switch (e.key) {
     case 'ArrowUp':
       keyUp = true
+      fuel.decreaseFuel()
       break
     case 'ArrowRight':
       keyRight = true
+      fuel.decreaseFuel()
       break
     case 'ArrowLeft':
       keyLeft = true
+      fuel.decreaseFuel()
       break
   }
 })
