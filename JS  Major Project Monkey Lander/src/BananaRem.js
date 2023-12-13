@@ -19,10 +19,10 @@ class BananaLeft {
       ctx.font = "12px Nunito";
       ctx.fillStyle = "#ff6600";
       ctx.strokeStyle = "#ff6600";
-    //   ctx.fillText("BANANA LEFT", 668, 18);
+      ctx.fillText("BANANA LEFT", 668, 18);
       ctx.strokeText("BANANA LEFT", 668, 18);
       ctx.font = "30px Nunito-Bold";
-    //   ctx.strokeText(game.banana.bananaLeftToCollect, 700, 55);
-    //   ctx.fillText(game.banana.bananaLeftToCollect, 700, 55);
+      ctx.strokeText(banana.bananaLeftToCollect, 700, 55);
+      ctx.fillText(banana.bananaLeftToCollect, 700, 55);
     }
   }

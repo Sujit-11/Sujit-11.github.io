@@ -7,8 +7,8 @@ function checkCollision() {
 
 
   for (let i = 0; i < ufo.ellipse.length; i++) {
-    // Generate points along the boundary of the UFO i.e ellipses
-    for (let theta = 0; theta <= 2 * Math.PI; theta += 0.1) {
+    // Generate points along the boundary of the UFO i.e each sectional ellipses with step of 5 degree that is (0.0873)
+    for (let theta = 0; theta <= 2 * Math.PI; theta += 0.0873) {
       const boundPointX =
         ufo.ellipse[i].x + ufo.ellipse[i].radiusX * Math.cos(theta)
       const boundPointY =
@@ -35,6 +35,7 @@ function checkCollision() {
 
     }
   }
+  let allCollisionPoints = [...midCollisionPoints,...headCollisionPoints,...leftFootCollisionPoints,...rightFootCollisionPoints]
 
-  return {midCollisionPoints,headCollisionPoints,leftFootCollisionPoints,rightFootCollisionPoints}
+  return {midCollisionPoints,headCollisionPoints,leftFootCollisionPoints,rightFootCollisionPoints,allCollisionPoints}
 }
