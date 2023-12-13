@@ -1,33 +1,40 @@
 function checkCollision() {
+  
+  let midCollisionPoints = []
+  let headCollisionPoints = []
+  let leftFootCollisionPoints = []
+  let rightFootCollisionPoints = []
+
+
   for (let i = 0; i < ufo.ellipse.length; i++) {
     // Generate points along the boundary of the UFO i.e ellipses
-    for (let theta = 0; theta < 2 * Math.PI; theta += Math.PI / 2) {
-      const x =
+    for (let theta = 0; theta <= 2 * Math.PI; theta += 0.1) {
+      const boundPointX =
         ufo.ellipse[i].x + ufo.ellipse[i].radiusX * Math.cos(theta)
-      const y =
+      const boundPointY =
         ufo.ellipse[i].y + ufo.ellipse[i].radiusY * Math.sin(theta)
+      if(i === 0){
+        midCollisionPoints.push({boundPointX,boundPointY})
+      }else if(i === 1){
+        headCollisionPoints.push({boundPointX,boundPointY})
+      }
+      else if(i === 2){
+        leftFootCollisionPoints.push({boundPointX,boundPointY})
+      }else{
+        rightFootCollisionPoints.push({boundPointX,boundPointY})
+      }
 
-      if (
-        x < 0 || // left of canvas
-        x > canvas.width || // right of canvas
-        // y < 0 || // top of canvas
-        y > canvas.height//bottom of canvas
-        ||(x > landingSpace.position.x &&
-            x < landingSpace.position.x + landingSpace.width &&
-            y > landingSpace.position.y &&    
-            y < landingSpace.position.y + landingSpace.height) //platform
-      ) {
-        // console.log('Collision detected with canvas boundary!')
-        ufo.gravity = 0 // Stop vertical movement on collision
-        ufo.gravitySpeed = 0 // Stop vertical movement on collision
-        ufo.verticalSpeed = 0 // ""
-      }
-      else {
-        ufo.gravity = 0.01
-        // ufo.gravitySpeed = 0
-      }
+      // if (
+      //   boundPointX < 0 || // left of canvas
+      //   boundPointX > canvas.width || // right of canvas
+      //   // boundPointY  < 0 || // top of canvas
+      //   boundPointY > canvas.height //bottom of canvas
+      // ) {
+      //   // console.log('Collision detected with canvas boundary!')
+      // }
+
     }
   }
+
+  return {midCollisionPoints,headCollisionPoints,leftFootCollisionPoints,rightFootCollisionPoints}
 }
-
-
