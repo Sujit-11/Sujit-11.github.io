@@ -1,16 +1,24 @@
 class LandingSpace {
   constructor() {
+    this.timer = 0
     this.landingSpaceImg = new Image()
     this.landingSpaceImg.src = '../assets/images/platform.png'
     this.timer = 0
 
-    this.position = { x: 760, y: 450 }
+    this.position = [
+      { x: 760, y: 450 },
+      { x: 400, y: 490 },
+      { x: 200, y: 490 },
+      { x: 280, y: 500 },
+      { x: 780, y: 430 },
+    ]
     this.height = 25
     this.width = 202
     this.nextLevelTimer = 0
     this.sound = false
     this.victorySound = false
   }
+
   update(ctx) {
     ctx.drawImage(
       this.landingSpaceImg,
@@ -18,33 +26,100 @@ class LandingSpace {
       1,
       this.width,
       this.height,
-      this.position.x,
-      this.position.y,
+      this.position[levelValue].x,
+      this.position[levelValue].y,
       this.width,
       this.height
     )
-    const {leftFootCollisionPoints,rightFootCollisionPoints} = checkCollision()
-    this.landingCollision(leftFootCollisionPoints,rightFootCollisionPoints)
+
+    const {
+      leftFootCollisionPoints,
+      rightFootCollisionPoints,
+      headCollisionPoints,
+      midCollisionPoints,
+    } = ellipseCollisionPoints()
+    this.landingCollision(
+      leftFootCollisionPoints,
+      rightFootCollisionPoints,
+      headCollisionPoints,
+      midCollisionPoints
+    )
   }
-  landingCollision(leftFootCollisionPoints, rightFootCollisionPoints) {
-    for (const { boundPointX: leftX, boundPointY: leftY } of leftFootCollisionPoints) {
-        for (const { boundPointX: rightX, boundPointY: rightY } of rightFootCollisionPoints) {
-            if (
-                leftX > this.position.x &&
-                leftX < this.position.x + this.width &&
-                leftY > this.position.y &&
-                leftY < this.position.y + this.height  &&
-                rightX > this.position.x &&
-                rightX < this.position.x + this.width &&
-                rightY > this.position.y &&
-                rightY < this.position.y + this.height 
-                ) { 
-                  if(ufo.gravitySpeed + ufo.verticalSpeed < 2){
-                    ufo.canPlay = false;
-                    ufo.landed();
-                  }
-            }
-        }
+
+  landingCollision(
+    leftFootCollisionPoints,
+    rightFootCollisionPoints,
+    headCollisionPoints,
+    midCollisionPoints
+  ) {
+    const otherPartsCollisionPoints = [
+      ...headCollisionPoints,
+      ...midCollisionPoints,
+    ]
+
+    for (const { boundPointX, boundPointY } of otherPartsCollisionPoints) {
+      if (
+        boundPointX > this.position[levelValue].x &&
+        boundPointX < this.position[levelValue].x + this.width &&
+        boundPointY > this.position[levelValue].y &&
+        boundPointY < this.position[levelValue].y + this.height
+      ) {
+        life.dead()
+        return // Exit the function early since the UFO is dead
+      }
     }
-}
+
+    for (const {
+      boundPointX: leftX,
+      boundPointY: leftY,
+    } of leftFootCollisionPoints) {
+      for (const {
+        boundPointX: rightX,
+        boundPointY: rightY,
+      } of rightFootCollisionPoints) {
+        if (
+          leftX > this.position[levelValue].x &&
+          leftX < this.position[levelValue].x + this.width &&
+          leftY > this.position[levelValue].y &&
+          leftY < this.position[levelValue].y + this.height &&
+          rightX > this.position[levelValue].x &&
+          rightX < this.position[levelValue].x + this.width &&
+          rightY > this.position[levelValue].y &&
+          rightY < this.position[levelValue].y + this.height
+        ) {
+          if (ufo.gravitySpeed + ufo.verticalSpeed < 2) {
+            this.timer += 1
+            ufo.canPlay = false
+            ufo.landed()
+            if (this.timer > 53) {
+              levelCompleted.update(ctx)
+              if (fuel.fuelHealth > 0) {
+                score += 1
+                fuel.decreaseFuel()
+              } else {
+                this.nextLevelTimer += 1
+                if (this.nextLevelTimer > 150) {
+                  levelValue += 1
+                  fuel.fuelHealth = FUEL_HEALTH
+                  ufo.verticalSpeedFactor = 0.05
+                  ufo.horizontalSpeedFactor = 0.2
+                  ufo.horizontalSpeed = 0
+                  ufo.verticalSpeed = 0
+                  ufo.gravitySpeed = 0
+                  ufo.canPlay = true
+                  ufo.static()
+                  this.nextLevelTimer = 0
+                  this.timer = 0
+                }
+              }
+            }
+            return
+          } else {
+            life.dead()
+            return
+          }
+        }
+      }
+    }
+  }
 }

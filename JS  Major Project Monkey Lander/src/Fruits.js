@@ -7,44 +7,69 @@ class Fruit {
       '../assets/images/fruits/pineapple.png',
     ]
 
-    this.fruitNum = Math.round(Math.random() * (this.fruitImages.length - 1));
-
-    this.position = [{ x: 430,y: 250 },]
+    
+    this.position= [
+      [{ x: 430, y: 250 }],
+      [
+        { x: 550, y: 300 },
+        { x: 350, y: 300 },
+      ],
+      [
+        { x: 880, y: 150 },
+        { x: 670, y: 350 },
+        { x: 350, y: 350 },
+      ],
+      [
+        { x: 500, y: 60 },
+        { x: 850, y: 250 },
+        { x: 900, y: 450 },
+      ],
+      [
+        { x: 250, y: 390 },
+        { x: 580, y: 360 },
+        { x: 650, y: 220 },
+      ],
+    ]
     this.width = 25
     this.height = 48
     this.imageHeight = 64
     this.imageWidth = 270
+    this.setFruitTypeForLevel()
   }
-  update(ctx){
-    for (let i = 0; i < this.position.length; i++) {
-    this.image.src = this.fruitImages[this.fruitNum]
-    ctx.drawImage(
+  setFruitTypeForLevel(){
+    this.fruitNum = Math.round(Math.random() * (this.fruitImages.length - 1))
+  }
+  update(ctx) {
+    for (let i = 0; i < this.position[levelValue].length; i++) {
+      this.image.src = this.fruitImages[this.fruitNum]
+      ctx.drawImage(
         this.image,
         0,
         0,
         this.imageWidth,
         this.imageHeight,
-        this.position[i].x,
-        this.position[i].y,
+        this.position[levelValue][i].x,
+        this.position[levelValue][i].y,
         this.imageWidth,
         this.imageHeight
-    )
-    const { midCollisionPoints } = checkCollision()
-    this.fruitCollision(midCollisionPoints)
+      )
+      const { midCollisionPoints } = ellipseCollisionPoints()
+      this.fruitCollision(midCollisionPoints)
     }
   }
-  fruitCollision(midCollisionPoints){
+  fruitCollision(midCollisionPoints) {
     for (const { boundPointX, boundPointY } of midCollisionPoints) {
-      for (let i = 0; i < this.position.length; i++) {
-    if (
-      boundPointX < this.position[i].x + this.width &&
-      boundPointX > this.position[i].x &&
-      boundPointY < this.position[i].y + this.height &&
-      boundPointY > this.position[i].y
-    ) {
-      this.position.splice(i, 1)
+      for (let i = 0; i < this.position[levelValue].length; i++) {
+        if (
+          boundPointX < this.position[levelValue][i].x + this.width &&
+          boundPointX > this.position[levelValue][i].x &&
+          boundPointY < this.position[levelValue][i].y + this.height &&
+          boundPointY > this.position[levelValue][i].y
+        ) {
+          this.position[levelValue].splice(i, 1)
+          score += FRUIT_POINT
+        }
+      }
     }
-  }
-}
   }
 }

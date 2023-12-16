@@ -68,4 +68,10 @@ class Life {
       )
     }
   }
+  dead() {
+    if (this.monkeyRem > 0) {
+      this.monkeyRem -= 1
+      ufo.reset()
+    }
+  }
 }

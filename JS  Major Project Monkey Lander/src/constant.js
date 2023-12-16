@@ -1,0 +1,4 @@
+const FRUIT_POINT = 500
+const BANANA_POINT = 200
+
+const FUEL_HEALTH = 300
