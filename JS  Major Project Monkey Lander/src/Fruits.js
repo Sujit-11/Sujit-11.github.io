@@ -40,7 +40,7 @@ class Fruit {
     this.fruitNum = Math.round(Math.random() * (this.fruitImages.length - 1))
   }
   update(ctx) {
-    for (let i = 0; i < this.position[levelValue].length; i++) {
+    for (let i = 0; i < this.position[levelValue]?.length; i++) {
       this.image.src = this.fruitImages[this.fruitNum]
       ctx.drawImage(
         this.image,
@@ -59,13 +59,14 @@ class Fruit {
   }
   fruitCollision(midCollisionPoints) {
     for (const { boundPointX, boundPointY } of midCollisionPoints) {
-      for (let i = 0; i < this.position[levelValue].length; i++) {
+      for (let i = 0; i < this.position[levelValue]?.length; i++) {
         if (
           boundPointX < this.position[levelValue][i].x + this.width &&
           boundPointX > this.position[levelValue][i].x &&
           boundPointY < this.position[levelValue][i].y + this.height &&
           boundPointY > this.position[levelValue][i].y
         ) {
+          sound.eat.play()
           this.position[levelValue].splice(i, 1)
           score += FRUIT_POINT
         }

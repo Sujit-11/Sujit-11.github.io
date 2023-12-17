@@ -63,7 +63,14 @@ class Ufo {
       if (keyLeft) {
         this.left()
       }
+      if(keyUp && keyRight){
+        this.upRight()
+      }
+      if(keyUp && keyLeft){
+        this.upLeft()
+      }
     }
+    this.checkCanvasCollision()
   }
 
   draw(ctx, backgroundImg) {
@@ -113,6 +120,7 @@ class Ufo {
     this.verticalSpeed = 0
     this.horizontalSpeedFactor = 0.2
     this.horizontalSpeed = 0
+    sound.spawn.play()
   }
 
   boundEllipse() {
@@ -156,6 +164,19 @@ class Ufo {
     ]
   }
 
+  checkCanvasCollision(){
+    let borderCollision =
+      this.position[levelValue].y < -80 ||
+      this.position[levelValue].y > 520 ||
+      this.position[levelValue].x < -130 ||
+      this.position[levelValue].x > 935;
+
+    if (!borderCollision) {
+      return;
+    }
+    life.dead();
+  }
+
   static() {
     this.sY = 0
   }
@@ -178,5 +199,13 @@ class Ufo {
   left() {
     this.horizontalSpeed -= this.horizontalSpeedFactor
     this.sY = 389.8
+  }
+  //upright sprite
+  upRight(){
+    this.sY = 662.25
+  }
+  //upLeft sprite
+  upLeft(){
+    this.sY = 798.55
   }
 }
