@@ -64,3 +64,118 @@ canvas{
   bottom: 20px;
   right: 5%;
 }
+
+#level-area {
+  height: 530px;
+  width: 993px;
+  background: url("./assets/images/background/gameover-background.png");
+  display: none;
+  margin: 30px auto ;
+  position: relative;
+}
+
+h1 {
+  font-size: 4em;
+  color: #ff6600;
+  font-family: Nunito-ExtraBold;
+}
+
+.header {
+  margin: 30px 0 15px 30px;
+}
+
+.level-wrapper {
+  margin: 0 auto;
+  width: 940px;
+  height: 20px;
+  display: flex;
+
+  flex-wrap: wrap;
+}
+
+.level-item {
+  height: 190px;
+  width: 270px;
+  background-color: #000000;
+  margin-right: 43px;
+  margin-bottom: 20px;
+  font-family: Nunito-ExtraBold;
+  font-size: 4em;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.level-item::before {
+  content: "";
+  position: absolute;
+  height: 190px;
+  width: 270px;
+  background-color: #000000;
+  opacity: 30%;
+  line-height: 190px;
+  text-align: center;
+  border-radius: 5px;
+  color: #ff6600;
+}
+
+#level-one {
+  background: url("./assets/images/level/level1.png");
+  background-size: cover;
+}
+
+#level-one:hover:before {
+  content: "1";
+  opacity: 65%;
+  background-color: #ebebeb;
+}
+
+#level-two {
+  background: url("./assets/images/level/level2.png");
+  background-size: cover;
+}
+
+#level-two:hover:before {
+  content: "2";
+  opacity: 65%;
+  background-color: #ebebeb;
+}
+
+#level-three {
+  background: url("./assets/images/level/level3.png");
+  background-size: cover;
+}
+
+#level-three:hover:before {
+  content: "3";
+  opacity: 65%;
+  background-color: #ebebeb;
+}
+
+#level-four {
+  background: url("./assets/images/level/level4.png");
+  background-size: cover;
+}
+
+#level-four:hover:before {
+  content: "4";
+  opacity: 65%;
+  background-color: #ebebeb;
+}
+
+#level-five {
+  background: url("./assets/images/level/level5.png");
+  background-size: cover;
+}
+
+#level-five:hover:before {
+  content: "5";
+  opacity: 65%;
+  background-color: #ebebeb;
+}
+
+#level-back-button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
