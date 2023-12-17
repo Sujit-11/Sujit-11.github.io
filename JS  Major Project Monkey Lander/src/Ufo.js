@@ -37,12 +37,11 @@ class Ufo {
 
     this.gravitySpeed = 0
     this.gravity = 0.01
-    this.landingClock = 0
   }
 
   update(ctx, backgroundImg) {
-    
     this.draw(ctx, backgroundImg)
+
     //Game Condition
     if (this.canPlay) {
       this.position[levelValue].y += this.gravitySpeed + this.verticalSpeed
@@ -63,10 +62,10 @@ class Ufo {
       if (keyLeft) {
         this.left()
       }
-      if(keyUp && keyRight){
+      if (keyUp && keyRight) {
         this.upRight()
       }
-      if(keyUp && keyLeft){
+      if (keyUp && keyLeft) {
         this.upLeft()
       }
     }
@@ -105,16 +104,13 @@ class Ufo {
     for (let i = 0; i <= this.ellipse.length - 1; i++) {
       drawBoundingEllipse(i)
     }
-    
   }
 
   reset() {
-    // console.log(this)
     this.position[levelValue].y = this.checkpoint[levelValue].y
     this.position[levelValue].x = this.checkpoint[levelValue].x
     fuel.fuelHealth = FUEL_HEALTH
     this.canPlay = true
-    // life.timer =0
     this.gravitySpeed = 0
     this.verticalSpeedFactor = 0.05
     this.verticalSpeed = 0
@@ -164,17 +160,17 @@ class Ufo {
     ]
   }
 
-  checkCanvasCollision(){
+  checkCanvasCollision() {
     let borderCollision =
       this.position[levelValue].y < -80 ||
       this.position[levelValue].y > 520 ||
       this.position[levelValue].x < -130 ||
-      this.position[levelValue].x > 935;
+      this.position[levelValue].x > 935
 
     if (!borderCollision) {
-      return;
+      return
     }
-    life.dead();
+    life.dead()
   }
 
   static() {
@@ -201,11 +197,11 @@ class Ufo {
     this.sY = 389.8
   }
   //upright sprite
-  upRight(){
+  upRight() {
     this.sY = 662.25
   }
   //upLeft sprite
-  upLeft(){
+  upLeft() {
     this.sY = 798.55
   }
 }

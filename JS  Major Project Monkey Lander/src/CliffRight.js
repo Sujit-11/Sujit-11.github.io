@@ -38,17 +38,22 @@ class CliffRight {
 
     //Drawing Polygon
     ctx.beginPath()
-    ctx.moveTo(this.x + 299, this.y + 1)
-    ctx.lineTo(this.x + 250, this.y + 33)
-    ctx.lineTo(this.x + 200, this.y + 60)
-    ctx.lineTo(this.x + 135, this.y + 85)
-    ctx.lineTo(this.x + 30, this.y + 99)
-    ctx.lineTo(this.x + 5, this.y + 115)
-    ctx.lineTo(this.x, this.y + 130)
-    ctx.lineTo(this.x + 10, this.y + 160)
-    ctx.lineTo(this.x + 50, this.y + 201)
-    ctx.lineTo(this.x + 299, this.y + 201)
-    ctx.lineTo(this.x + 299, this.y + 1)
+    // ctx.moveTo(this.x + 299, this.y + 1)
+    // ctx.lineTo(this.x + 250, this.y + 33)
+    // ctx.lineTo(this.x + 200, this.y + 60)
+    // ctx.lineTo(this.x + 135, this.y + 85)
+    // ctx.lineTo(this.x + 30, this.y + 99)
+    // ctx.lineTo(this.x + 5, this.y + 115)
+    // ctx.lineTo(this.x, this.y + 130)
+    // ctx.lineTo(this.x + 10, this.y + 160)
+    // ctx.lineTo(this.x + 50, this.y + 201)
+    // ctx.lineTo(this.x + 299, this.y + 201)
+    // ctx.lineTo(this.x + 299, this.y + 1)
+
+    ctx.moveTo(this.points[0].x, this.points[0].y)
+    for (let i = 1; i < this.points.length; i++) {
+      ctx.lineTo(this.points[i].x, this.points[i].y)
+    }
     ctx.strokeStyle = 'blue'
     ctx.stroke()
     ctx.closePath()

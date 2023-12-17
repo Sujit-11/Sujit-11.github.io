@@ -34,7 +34,6 @@ function ellipseCollisionPoints() {
 
 /** Ray Casting Algo */
 function isPointInPolygon(point, polygon) {
-  // console.log(polygon[0].x)
     let minX = polygon[0].x, maxX = polygon[0].x;
     let minY = polygon[0].y, maxY = polygon[0].y;
   

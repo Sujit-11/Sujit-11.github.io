@@ -69,6 +69,7 @@ class Fruit {
           sound.eat.play()
           this.position[levelValue].splice(i, 1)
           score += FRUIT_POINT
+          scoreEffects.push(new ScoreEffect(boundPointX, boundPointY, FRUIT_POINT));
         }
       }
     }

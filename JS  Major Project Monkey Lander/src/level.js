@@ -5,6 +5,13 @@ class Level {
     canvas.style.display = 'block'
     ufo.update(ctx, backgroundImg)
     fruit.update(ctx)
+    scoreEffects.forEach((effect, i) => {
+      if (effect.opacity <= 0) {
+        scoreEffects.splice(i, 1);
+      } else {
+        effect.update(ctx);
+      }
+    });
     if (levelValue === 1) {
       cliffright.update(ctx)
       cliffleft.update(ctx)

@@ -60,6 +60,7 @@ class Banana {
           this.position[levelValue].splice(i, 1)
           this.bananaLeftToCollect -= 1
           score += BANANA_POINT
+          scoreEffects.push(new ScoreEffect(boundPointX, boundPointY, BANANA_POINT));
         }
       }
     }

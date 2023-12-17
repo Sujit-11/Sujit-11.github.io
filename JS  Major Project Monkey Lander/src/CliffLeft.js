@@ -36,20 +36,12 @@ class CliffLeft {
       this.height
     )
 
-    //polygon
+    //Draw polygon
     ctx.beginPath()
-    ctx.moveTo(this.x, this.y + 3)
-    ctx.lineTo(this.x + 85, this.y + 55)
-    ctx.lineTo(this.x + 140, this.y + 80)
-    ctx.lineTo(this.x + 210, this.y + 92)
-    ctx.lineTo(this.x + 265, this.y + 99)
-    ctx.lineTo(this.x + 292, this.y + 110)
-    ctx.lineTo(this.x + 300, this.y + 125)
-    ctx.lineTo(this.x + 300, this.y + 145)
-    ctx.lineTo(this.x + 265, this.y + 190)
-    ctx.lineTo(this.x + 260, this.y + 202)
-    ctx.lineTo(this.x, this.y + 202)
-    ctx.lineTo(this.x, this.y + 3)
+    ctx.moveTo(this.points[0].x, this.points[0].y)
+    for (let i = 1; i < this.points.length; i++) {
+      ctx.lineTo(this.points[i].x, this.points[i].y)
+    }
     ctx.strokeStyle = 'blue'
     ctx.stroke()
     ctx.closePath()

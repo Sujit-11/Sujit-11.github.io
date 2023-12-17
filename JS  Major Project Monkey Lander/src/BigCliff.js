@@ -39,19 +39,10 @@ class BigCliff {
 
     //Drawing Polygon
     ctx.beginPath()
-    ctx.moveTo(this.x, this.y + 2)
-    ctx.lineTo(this.x + 27, this.y + 12)
-    ctx.lineTo(this.x + 80, this.y + 19)
-    ctx.lineTo(this.x + 115, this.y + 18)
-    ctx.lineTo(this.x + 140, this.y + 32)
-    ctx.lineTo(this.x + 147, this.y + 50)
-    ctx.lineTo(this.x + 135, this.y + 90)
-    ctx.lineTo(this.x + 116, this.y + 120)
-    ctx.lineTo(this.x + 103, this.y + 165)
-    ctx.lineTo(this.x + 106, this.y + 200)
-    ctx.lineTo(this.x + 99, this.y + 219)
-    ctx.lineTo(this.x, this.y + 219)
-    ctx.lineTo(this.x, this.y + 2)
+    ctx.moveTo(this.points[0].x, this.points[0].y)
+    for (let i = 1; i < this.points.length; i++) {
+      ctx.lineTo(this.points[i].x, this.points[i].y)
+    }
     ctx.strokeStyle = 'blue'
     ctx.stroke()
     ctx.closePath()

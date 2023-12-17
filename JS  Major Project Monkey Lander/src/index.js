@@ -2,7 +2,6 @@ const sound = new Sound()
 const ufo = new Ufo()
 const pause = new Pause()
 const life = new Life()
-// const collision = new Collision()
 const remBanana = new BananaLeft()
 const platform = new LandingSpace()
 const cliffright = new CliffRight()
@@ -28,6 +27,7 @@ let state = 0
 
 let levelValue = 0
 let score = 0
+let scoreEffects = []
 let highscore = localStorage.getItem("highscore") || 0
 let paused = false
 
