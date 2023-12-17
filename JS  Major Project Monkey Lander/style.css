@@ -20,13 +20,47 @@
 }
 
 body{
-    height: 100vh;
-    background-color: darkgrey;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
+    font-family: Nunito;
+    background-color: darkgrey; 
 }
 
-/* #canvas{
-    
-} */
+canvas{
+  position: absolute;
+  top: 30px;
+  left: calc(50% - 496px);
+}
+
+#menu {
+  width : 993px;
+  height : 530px;
+  background: url("./assets/images/background/Menu-Page\ bg.png");
+  margin: 30px auto ;
+  position: relative;
+}
+.button {
+  font-family: Nunito-ExtraBold;
+  color: #666666;
+  height: 55px;
+  padding: 0 30px;
+  background-color: #ffffff;
+  font-size: 30px;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  border-radius: 15px;
+  border-left: 4px solid #000000;
+  border-right: 4px solid #000000;
+  cursor: pointer;
+}
+.button:hover {
+  color: #ff6600;
+}
+#play {
+  position: absolute;
+  bottom: 20px;
+  right: 30%;
+}
+#level {
+  position: absolute;
+  bottom: 20px;
+  right: 5%;
+}

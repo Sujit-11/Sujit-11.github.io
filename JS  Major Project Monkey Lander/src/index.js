@@ -24,13 +24,34 @@ const scr = new Score()
 const highScore = new Highscore()
 const gameOver = new GameOver()
 
+let state = 0
+
 let levelValue = 0
 let score = 0
-let highscore = localStorage.getItem("highscore") 
+let highscore = localStorage.getItem("highscore") || 0
 let paused = false
-function animate() {
-  level.update(ctx)
 
+function update(){
+  if(state != inGame){
+    return
+  }
+  menuDiv.style.display = "none"
+  canvas.style.display = "block"
+  level.update(ctx)
+}
+
+function menu(){
+  if (this.state != mainMenu) {
+    return;
+  }
+  menuDiv.style.display = "block"
+  canvas.style.display = "none"
+  levelValue = 0
+}
+
+function animate() {
+  update()
+  menu()
   requestAnimationFrame(animate)
 }
 animate()
