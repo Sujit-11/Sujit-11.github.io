@@ -17,6 +17,7 @@ class GameOver {
       this.pointY = 370;
     }
     update(ctx) {
+      ufo.canPlay = false
       if (score > highscore) {
         highscore = score;
         localStorage.setItem("highScore", highscore);
