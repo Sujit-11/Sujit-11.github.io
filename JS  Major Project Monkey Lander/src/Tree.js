@@ -1,7 +1,7 @@
 class Tree {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/tree.png'
+    this.image.src = 'assets/images/tree.png'
     this.position = [
       {},
       {},

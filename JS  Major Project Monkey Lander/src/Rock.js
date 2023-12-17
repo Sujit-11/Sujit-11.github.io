@@ -1,7 +1,7 @@
 class Rock {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/rock.png'
+    this.image.src = 'assets/images/rock.png'
     this.position = [{}, {}, {}, {}, { x: -1, y: -2 }]
     this.height = 122
     this.width = 122

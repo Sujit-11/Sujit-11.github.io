@@ -1,7 +1,7 @@
 class RopeRight {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/rope.png'
+    this.image.src = 'assets/images/rope.png'
     this.sX = 0
     this.sY = 173
     this.width = 157

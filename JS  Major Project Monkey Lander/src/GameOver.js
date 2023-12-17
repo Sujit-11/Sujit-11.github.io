@@ -1,7 +1,7 @@
 class GameOver {
     constructor() {
       this.image = new Image();
-      this.image.src = "../assets/images/background/gameover-background.png";
+      this.image.src = "assets/images/background/gameover-background.png";
       this.height = 530;
       this.width = 993;
       this.sX = 0;

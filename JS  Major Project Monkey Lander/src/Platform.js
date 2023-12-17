@@ -2,7 +2,7 @@ class LandingSpace {
   constructor() {
     this.timer = 0
     this.landingSpaceImg = new Image()
-    this.landingSpaceImg.src = '../assets/images/platform.png'
+    this.landingSpaceImg.src = 'assets/images/platform.png'
     this.timer = 0
 
     this.position = [

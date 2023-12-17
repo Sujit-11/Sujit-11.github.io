@@ -1,7 +1,7 @@
 class SkeletonLeft {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/skeleton.png'
+    this.image.src = 'assets/images/skeleton.png'
     this.x = 500
     this.y = 324
     this.sX = 0

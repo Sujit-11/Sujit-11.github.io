@@ -1,40 +1,40 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap');
 @font-face {
   font-family: Nunito;
-  src: url("./assets/fonts/Nunito-Regular.ttf");
+  src: url('./assets/fonts/Nunito-Regular.ttf');
 }
 
 @font-face {
   font-family: Nunito-Bold;
-  src: url("./assets/fonts/Nunito-Bold.ttf");
+  src: url('./assets/fonts/Nunito-Bold.ttf');
 }
 
 @font-face {
   font-family: Nunito-ExtraBold;
-  src: url("./assets/fonts/Nunito-ExtraBold.ttf");
+  src: url('./assets/fonts/Nunito-ExtraBold.ttf');
 }
 
-body{
-    font-family: Nunito;
-    background-color: darkgrey; 
+body {
+  font-family: Nunito;
+  background-color: darkgrey;
 }
 
-canvas{
+canvas {
   position: absolute;
   top: 30px;
   left: calc(50% - 496px);
 }
 
 #menu {
-  width : 993px;
-  height : 530px;
-  background: url("./assets/images/background/Menu-Page\ bg.png");
-  margin: 30px auto ;
+  width: 993px;
+  height: 530px;
+  background: url('./assets/images/background/Menu-Page\ bg.png');
+  margin: 30px auto;
   position: relative;
 }
 .button {
@@ -68,9 +68,9 @@ canvas{
 #level-area {
   height: 530px;
   width: 993px;
-  background: url("./assets/images/background/gameover-background.png");
+  background: url('./assets/images/background/gameover-background.png');
   display: none;
-  margin: 30px auto ;
+  margin: 30px auto;
   position: relative;
 }
 
@@ -107,7 +107,7 @@ h1 {
 }
 
 .level-item::before {
-  content: "";
+  content: '';
   position: absolute;
   height: 190px;
   width: 270px;
@@ -120,56 +120,56 @@ h1 {
 }
 
 #level-one {
-  background: url("./assets/images/level/level1.png");
+  background: url('./assets/images/level/level1.png');
   background-size: cover;
 }
 
 #level-one:hover:before {
-  content: "1";
+  content: '1';
   opacity: 65%;
   background-color: #ebebeb;
 }
 
 #level-two {
-  background: url("./assets/images/level/level2.png");
+  background: url('./assets/images/level/level2.png');
   background-size: cover;
 }
 
 #level-two:hover:before {
-  content: "2";
+  content: '2';
   opacity: 65%;
   background-color: #ebebeb;
 }
 
 #level-three {
-  background: url("./assets/images/level/level3.png");
+  background: url('./assets/images/level/level3.png');
   background-size: cover;
 }
 
 #level-three:hover:before {
-  content: "3";
+  content: '3';
   opacity: 65%;
   background-color: #ebebeb;
 }
 
 #level-four {
-  background: url("./assets/images/level/level4.png");
+  background: url('./assets/images/level/level4.png');
   background-size: cover;
 }
 
 #level-four:hover:before {
-  content: "4";
+  content: '4';
   opacity: 65%;
   background-color: #ebebeb;
 }
 
 #level-five {
-  background: url("./assets/images/level/level5.png");
+  background: url('./assets/images/level/level5.png');
   background-size: cover;
 }
 
 #level-five:hover:before {
-  content: "5";
+  content: '5';
   opacity: 65%;
   background-color: #ebebeb;
 }
