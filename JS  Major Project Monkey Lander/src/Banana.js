@@ -30,8 +30,8 @@ class Banana {
     this.imageWidth = 270
   }
   update(ctx) {
-    this.bananaLeftToCollect = this.position[levelValue].length
-    for (let i = 0; i < this.position[levelValue].length; i++) {
+    this.bananaLeftToCollect = this.position[levelValue]?.length
+    for (let i = 0; i < this.position[levelValue]?.length; i++) {
       ctx.drawImage(
         this.bananaImage,
         0,
@@ -49,13 +49,14 @@ class Banana {
   }
   bananaCollision(midCollisionPoints) {
     for (const { boundPointX, boundPointY } of midCollisionPoints) {
-      for (let i = 0; i < this.position[levelValue].length; i++) {
+      for (let i = 0; i < this.position[levelValue]?.length; i++) {
         if (
           boundPointX < this.position[levelValue][i].x + this.width &&
           boundPointX > this.position[levelValue][i].x &&
           boundPointY < this.position[levelValue][i].y + this.height &&
           boundPointY > this.position[levelValue][i].y
         ) {
+          sound.eat.play()
           this.position[levelValue].splice(i, 1)
           this.bananaLeftToCollect -= 1
           score += BANANA_POINT

@@ -15,11 +15,15 @@ class LandingSpace {
     this.height = 25
     this.width = 202
     this.nextLevelTimer = 0
-    this.sound = false
+    this.snd = false
     this.victorySound = false
   }
 
   update(ctx) {
+    if (!this.snd) {
+      sound.landPop.play()
+      this.snd = true
+    }
     ctx.drawImage(
       this.landingSpaceImg,
       1,
@@ -88,17 +92,26 @@ class LandingSpace {
           rightY < this.position[levelValue].y + this.height
         ) {
           if (ufo.gravitySpeed + ufo.verticalSpeed < 2) {
+            if (!this.victorySound) {
+              sound.victory.play()
+              this.victorySound = true
+            }
             this.timer += 1
             ufo.canPlay = false
             ufo.landed()
-            if (this.timer > 53) {
+            if (this.timer > 80) {
               levelCompleted.update(ctx)
               if (fuel.fuelHealth > 0) {
                 score += 1
                 fuel.decreaseFuel()
+                sound.points.play()
               } else {
+                sound.points.pause()
                 this.nextLevelTimer += 1
-                if (this.nextLevelTimer > 150) {
+                if (this.nextLevelTimer > 160) {
+                  if(levelValue === 5){
+                    return
+                  }
                   levelValue += 1
                   fuel.fuelHealth = FUEL_HEALTH
                   ufo.verticalSpeedFactor = 0.05
@@ -110,6 +123,8 @@ class LandingSpace {
                   ufo.static()
                   this.nextLevelTimer = 0
                   this.timer = 0
+                  this.snd = false
+                  this.victorySound = false
                 }
               }
             }

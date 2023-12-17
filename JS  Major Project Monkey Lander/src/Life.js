@@ -70,6 +70,7 @@ class Life {
   }
   dead() {
     if (this.monkeyRem > 0) {
+      sound.dead.play()
       this.monkeyRem -= 1
       ufo.reset()
     }

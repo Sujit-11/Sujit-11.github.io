@@ -1,4 +1,6 @@
+const sound = new Sound()
 const ufo = new Ufo()
+const pause = new Pause()
 const life = new Life()
 // const collision = new Collision()
 const remBanana = new BananaLeft()
@@ -24,7 +26,8 @@ const gameOver = new GameOver()
 
 let levelValue = 0
 let score = 0
-let highscore = 0
+let highscore = localStorage.getItem("highscore") 
+let paused = false
 function animate() {
   level.update(ctx)
 
