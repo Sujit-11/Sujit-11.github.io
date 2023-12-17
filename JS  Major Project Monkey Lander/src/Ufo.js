@@ -26,7 +26,7 @@ class Ufo {
     ]
     this.ellipse = []
     this.ufoImage = new Image()
-    this.ufoImage.src = '../assets/images/character/ufo.png'
+    this.ufoImage.src = 'assets/images/character/ufo.png'
 
     this.movementFactor = 0.2
     this.horizontalSpeed = 0
