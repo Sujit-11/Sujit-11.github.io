@@ -1,7 +1,7 @@
 class BigRock {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/big-rock.png'
+    this.image.src = 'assets/images/big-rock.png'
     this.x = 372
     this.y = -1
     this.height = 185

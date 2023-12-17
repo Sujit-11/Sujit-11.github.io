@@ -1,7 +1,7 @@
 class CliffLeft {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/cliff.png'
+    this.image.src = 'assets/images/cliff.png'
     this.sX = 0
     this.sY = 0
     this.width = 302
