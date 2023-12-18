@@ -12,27 +12,27 @@
     <div id="menu">
         <button class="button" id="play" onclick="play()">PLAY !</button>
         <button class="button" id="level" onclick="levelButton()">LEVELS</button>
-    </div>
-    <div id = "level-area">
-        <h1 class="header">LEVELS</h1>
-          <div class="level-wrapper">
-            <div id="level-one" class="level-item" onclick="levelOne()"></div>
-            <div id="level-two" class="level-item" onclick="levelTwo()"></div>
-            <div
-              id="level-three"
-              class="level-item"
-              onclick="levelThree()"
-            ></div>
-            <div id="level-four" class="level-item" onclick="levelFour()"></div>
-            <div id="level-five" class="level-item" onclick="levelFive()"></div>
-          </div>
-          <button
-            id="level-back-button"
-            class="button"
-            onclick="levelBackButton()"
-          >
-            BACK
-          </button>
+        <div id = "level-area">
+            <h1 class="header">LEVELS</h1>
+              <div class="level-wrapper">
+                <div id="level-one" class="level-item" onclick="levelOne()"></div>
+                <div id="level-two" class="level-item" onclick="levelTwo()"></div>
+                <div
+                  id="level-three"
+                  class="level-item"
+                  onclick="levelThree()"
+                ></div>
+                <div id="level-four" class="level-item" onclick="levelFour()"></div>
+                <div id="level-five" class="level-item" onclick="levelFive()"></div>
+              </div>
+              <button
+                id="level-back-button"
+                class="button"
+                onclick="levelBackButton()"
+              >
+                BACK
+              </button>
+        </div>
     </div>
 
     <script src="./src/canvas.js"></script>
@@ -64,7 +64,9 @@
     <script src="./src/Rock.js"></script>
     <script src="./src/BigRock.js"></script>
     <script src="./src/Platform.js"></script>
+    <script src="./src/initialize.js"></script>
     <script src="./src/GameOver.js"></script>
+    <script src="./src/exit.js"></script>
     <script src="./src/index.js"></script>
 </body>
 </html>

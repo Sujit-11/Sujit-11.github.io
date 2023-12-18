@@ -21,7 +21,9 @@ const fruit = new Fruit()
 const banana = new Banana()
 const scr = new Score()
 const highScore = new Highscore()
+const init = new Initialize()
 const gameOver = new GameOver()
+const exit = new Exit()
 
 let state = 0
 
@@ -43,7 +45,7 @@ function update(){
 }
 
 function menu(){
-  if (this.state != mainMenu) {
+  if (state != mainMenu) {
     return;
   }
   menuDiv.style.display = "block"
@@ -51,9 +53,19 @@ function menu(){
   levelValue = 0
 }
 
+function gameOvr(){
+  console.log(state)
+  if(state != gameEnd){
+    return;
+  }
+  gameOver.update(ctx)
+}
 function animate() {
+  console.log(state)
   update()
   menu()
+  gameOvr()
   requestAnimationFrame(animate)
 }
+
 animate()

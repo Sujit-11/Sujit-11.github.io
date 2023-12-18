@@ -109,16 +109,16 @@ class Ufo {
   }
 
   reset() {
+    sound.spawn.play()
     this.position[levelValue].y = this.checkpoint[levelValue].y
     this.position[levelValue].x = this.checkpoint[levelValue].x
     fuel.fuelHealth = FUEL_HEALTH
-    this.canPlay = true
+    // this.canPlay = true
     this.gravitySpeed = 0
     this.verticalSpeedFactor = 0.05
     this.verticalSpeed = 0
     this.horizontalSpeedFactor = 0.2
     this.horizontalSpeed = 0
-    sound.spawn.play()
   }
 
   boundEllipse() {

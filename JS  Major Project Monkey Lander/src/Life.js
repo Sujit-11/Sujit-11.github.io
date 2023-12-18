@@ -69,10 +69,12 @@ class Life {
     }
   }
   dead() {
+    sound.dead.play()
     if (this.monkeyRem > 0) {
-      sound.dead.play()
       this.monkeyRem -= 1
       ufo.reset()
+    }else{
+      state = gameEnd
     }
   }
 }

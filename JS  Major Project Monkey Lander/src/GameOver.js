@@ -44,7 +44,7 @@ class GameOver {
       ctx.fillText(`MONKEY POINTS!`, this.lineThirdX, this.lineThirdY);
   
       highScore.update(ctx);
-    //   game.exit.update(ctx);
+      exit.update(ctx);
     }
   }
   
