@@ -1,7 +1,7 @@
 class BigRock {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/big-rock.png'
+    this.image.src = 'assets/images/big-rock.png'
     this.x = 372
     this.y = -1
     this.height = 185
@@ -93,8 +93,10 @@ class BigRock {
     for (let i = 1; i < this.points.length; i++) {
       ctx.lineTo(this.points[i].x, this.points[i].y)
     }
-    ctx.strokeStyle = 'blue'
-    ctx.stroke()
+    if(strk){
+      ctx.strokeStyle = 'blue'
+      ctx.stroke()
+    }
     ctx.closePath()
 
     //Check Collision

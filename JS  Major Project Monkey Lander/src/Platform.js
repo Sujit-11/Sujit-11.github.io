@@ -2,7 +2,7 @@ class LandingSpace {
   constructor() {
     this.timer = 0
     this.landingSpaceImg = new Image()
-    this.landingSpaceImg.src = '../assets/images/platform.png'
+    this.landingSpaceImg.src = 'assets/images/platform.png'
     this.timer = 0
 
     this.position = [
@@ -110,7 +110,7 @@ class LandingSpace {
                 this.nextLevelTimer += 1
                 if (this.nextLevelTimer > 160) {
                   if(levelValue === 5){
-                    return
+                    state = gameEnd
                   }
                   levelValue += 1
                   fuel.fuelHealth = FUEL_HEALTH

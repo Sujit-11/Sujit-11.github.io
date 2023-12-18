@@ -44,7 +44,7 @@ class Fuel {
 
   decreaseFuel() {
     if (this.fuelHealth > 0) {
-      this.fuelHealth -= 2
+      this.fuelHealth -= 1
     }
   }
 }

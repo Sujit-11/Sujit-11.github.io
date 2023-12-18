@@ -1,7 +1,7 @@
 class RopeRight {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/rope.png'
+    this.image.src = 'assets/images/rope.png'
     this.sX = 0
     this.sY = 173
     this.width = 157
@@ -41,8 +41,10 @@ class RopeRight {
     ctx.lineTo(this.x + 128, this.y + 150)
     ctx.lineTo(this.x + 157, this.y + 172)
     ctx.lineTo(this.x + 157, this.y)
-    ctx.strokeStyle = 'blue'
-    ctx.stroke()
+    if(strk){
+      ctx.strokeStyle = 'blue'
+      ctx.stroke()
+    }
     ctx.closePath()
 
     //Check Collision

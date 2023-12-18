@@ -1,7 +1,7 @@
 class SkeletonRight {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/skeleton.png'
+    this.image.src = 'assets/images/skeleton.png'
     this.x = 300
     this.y = 325
     this.sX = 0
@@ -144,8 +144,10 @@ class SkeletonRight {
     ctx.lineTo(this.x + 35, this.y + 175)
     ctx.lineTo(this.x + 4, this.y + 186)
     ctx.lineTo(this.x + 2, this.y + 190)
-    ctx.strokeStyle = 'blue'
-    ctx.stroke()
+    if(strk){
+      ctx.strokeStyle = 'blue'
+      ctx.stroke()
+    }
     ctx.closePath()
 
     //Check Collision

@@ -26,7 +26,7 @@ class Ufo {
     ]
     this.ellipse = []
     this.ufoImage = new Image()
-    this.ufoImage.src = '../assets/images/character/ufo.png'
+    this.ufoImage.src = 'assets/images/character/ufo.png'
 
     this.movementFactor = 0.2
     this.horizontalSpeed = 0
@@ -98,8 +98,10 @@ class Ufo {
         this.ellipse[i].startAngle,
         this.ellipse[i].endAngle
       )
-      ctx.strokeStyle = 'purple'
-      ctx.stroke()
+      if (strk) {
+        ctx.strokeStyle = 'purple'
+        ctx.stroke()
+      }
     }
     for (let i = 0; i <= this.ellipse.length - 1; i++) {
       drawBoundingEllipse(i)

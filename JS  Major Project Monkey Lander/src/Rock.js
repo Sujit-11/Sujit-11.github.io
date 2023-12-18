@@ -1,7 +1,7 @@
 class Rock {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/rock.png'
+    this.image.src = 'assets/images/rock.png'
     this.position = [{}, {}, {}, {}, { x: -1, y: -2 }]
     this.height = 122
     this.width = 122
@@ -52,8 +52,10 @@ class Rock {
     for (let i = 1; i < this.points.length; i++) {
       ctx.lineTo(this.points[i].x, this.points[i].y)
     }
-    ctx.strokeStyle = 'blue'
-    ctx.stroke()
+    if(strk){
+      ctx.strokeStyle = 'blue'
+      ctx.stroke()
+    }
     ctx.closePath()
 
     //Check Collision

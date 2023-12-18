@@ -1,7 +1,7 @@
 class Tree {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/tree.png'
+    this.image.src = 'assets/images/tree.png'
     this.position = [
       {},
       {},
@@ -348,8 +348,10 @@ class Tree {
       this.position[levelValue].y + 10
     )
     ctx.lineTo(this.position[levelValue].x + 100, this.position[levelValue].y)
-    ctx.strokeStyle = 'blue'
-    ctx.stroke()
+    if(strk){
+      ctx.strokeStyle = 'blue'
+      ctx.stroke()
+    }
     ctx.closePath()
 
     //Check Collision

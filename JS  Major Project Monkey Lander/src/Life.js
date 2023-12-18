@@ -2,7 +2,7 @@ class Life {
   constructor() {
     this.monkeyRem = 3
     this.monkeyRemImg = new Image()
-    this.monkeyRemImg.src = '../assets/images/character/life.png'
+    this.monkeyRemImg.src = 'assets/images/character/life.png'
     this.x = 505
     this.y = 35
     this.height = 23.7

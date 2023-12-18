@@ -1,7 +1,7 @@
 class Banana {
   constructor() {
     this.bananaImage = new Image()
-    this.bananaImage.src = '../assets/images/fruits/banana.png'
+    this.bananaImage.src = 'assets/images/fruits/banana.png'
     this.position = [
       [
         { x: 200, y: 200 },

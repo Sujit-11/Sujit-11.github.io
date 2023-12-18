@@ -2,9 +2,9 @@ class Fruit {
   constructor() {
     this.image = new Image()
     this.fruitImages = [
-      '../assets/images/fruits/cherry.png',
-      '../assets/images/fruits/lemon.png',
-      '../assets/images/fruits/pineapple.png',
+      'assets/images/fruits/cherry.png',
+      'assets/images/fruits/lemon.png',
+      'assets/images/fruits/pineapple.png',
     ]
 
     

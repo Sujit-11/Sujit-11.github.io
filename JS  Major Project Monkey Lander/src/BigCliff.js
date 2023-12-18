@@ -1,7 +1,7 @@
 class BigCliff {
   constructor() {
     this.image = new Image()
-    this.image.src = '../assets/images/big-cliff.png'
+    this.image.src = 'assets/images/big-cliff.png'
     this.sX = 0
     this.sY = 0
     this.width = 147
@@ -43,8 +43,10 @@ class BigCliff {
     for (let i = 1; i < this.points.length; i++) {
       ctx.lineTo(this.points[i].x, this.points[i].y)
     }
-    ctx.strokeStyle = 'blue'
-    ctx.stroke()
+    if(strk){
+      ctx.strokeStyle = 'blue'
+      ctx.stroke()
+    }
     ctx.closePath()
 
     //Check Collision
