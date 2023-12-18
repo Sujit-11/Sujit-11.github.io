@@ -110,7 +110,7 @@ class LandingSpace {
                 this.nextLevelTimer += 1
                 if (this.nextLevelTimer > 160) {
                   if(levelValue === 5){
-                    return
+                    state = gameEnd
                   }
                   levelValue += 1
                   fuel.fuelHealth = FUEL_HEALTH

@@ -33,7 +33,7 @@ let scoreEffects = []
 let highscore = localStorage.getItem("highscore") || 0
 let paused = false
 
-let strk = false
+let strk = false // Use to see the boundary line stroke
 
 function update(){
   if(state != inGame){
@@ -54,14 +54,12 @@ function menu(){
 }
 
 function gameOvr(){
-  console.log(state)
   if(state != gameEnd){
     return;
   }
   gameOver.update(ctx)
 }
 function animate() {
-  console.log(state)
   update()
   menu()
   gameOvr()
