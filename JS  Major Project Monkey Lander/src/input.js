@@ -2,6 +2,9 @@ let keyUp = false
 let keyRight = false
 let keyLeft = false
 document.addEventListener('keydown', (e) => {
+  if(state != inGame){
+    return
+  }
   switch (e.key) {
     case 'ArrowUp':
       if (!ufo.canPlay) {
@@ -61,4 +64,11 @@ document.addEventListener('keyup', (e) => {
       sound.start.pause()
       break
   }
+})
+
+document.addEventListener('click',(event)=>{
+  var rect = canvas.getBoundingClientRect();
+  var xmouse = event.clientX - rect.left;
+  var ymouse = event.clientY - rect.top;
+  exit.quit(xmouse,ymouse)
 })

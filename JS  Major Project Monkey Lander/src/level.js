@@ -44,9 +44,10 @@ class Level {
     }
     life.update(ctx)
 
-    if (life.monkeyRem <= 0) {
-      gameOver.update(ctx)
-      return
+    if (life.monkeyRem === 0) {
+      state = gameEnd
+      // gameOver.update(ctx)
+      // return
     }
 
     remBanana.update(ctx)

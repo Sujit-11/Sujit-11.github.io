@@ -11,5 +11,6 @@ class Pause {
     ctx.strokeText(`PAUSED`, this.pauseX, this.pauseY)
     ctx.fillText(`PAUSED`, this.pauseX, this.pauseY)
     ctx.lineWidth = 1
+    exit.update(ctx)
   }
 }
