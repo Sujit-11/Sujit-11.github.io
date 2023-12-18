@@ -31,6 +31,8 @@ let scoreEffects = []
 let highscore = localStorage.getItem("highscore") || 0
 let paused = false
 
+let strk = false
+
 function update(){
   if(state != inGame){
     return

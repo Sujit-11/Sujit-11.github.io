@@ -40,8 +40,10 @@ class RopeLeft {
     ctx.lineTo(this.x + 30, this.y + 150)
     ctx.lineTo(this.x, this.y + 172)
     ctx.lineTo(this.x, this.y)
-    ctx.strokeStyle = 'blue'
-    ctx.stroke()
+    if(strk){
+      ctx.strokeStyle = 'blue'
+      ctx.stroke()
+    }
     ctx.closePath()
 
     //Check Collision

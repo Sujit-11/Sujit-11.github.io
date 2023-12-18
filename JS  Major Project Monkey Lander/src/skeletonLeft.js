@@ -113,8 +113,10 @@ class SkeletonLeft {
     ctx.lineTo(this.x + 66, this.y + 2)
     ctx.lineTo(this.x + 75, this.y + 8)
     ctx.lineTo(this.x + 90, this.y)
-    ctx.strokeStyle = 'blue'
-    ctx.stroke()
+    if(strk){
+      ctx.strokeStyle = 'blue'
+      ctx.stroke()
+    }
     ctx.closePath()
 
     //Check Collision

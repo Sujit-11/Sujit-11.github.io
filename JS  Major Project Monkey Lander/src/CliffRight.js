@@ -23,7 +23,6 @@ class CliffRight {
   }
 
   update(ctx) {
-    // console.log("hey there")
     ctx.drawImage(
       this.image,
       this.sX,
@@ -54,8 +53,10 @@ class CliffRight {
     for (let i = 1; i < this.points.length; i++) {
       ctx.lineTo(this.points[i].x, this.points[i].y)
     }
-    ctx.strokeStyle = 'blue'
-    ctx.stroke()
+    if(strk){
+      ctx.strokeStyle = 'blue'
+      ctx.stroke()
+    }
     ctx.closePath()
 
     //Check Collision

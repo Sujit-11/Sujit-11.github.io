@@ -98,8 +98,10 @@ class Ufo {
         this.ellipse[i].startAngle,
         this.ellipse[i].endAngle
       )
-      ctx.strokeStyle = 'purple'
-      ctx.stroke()
+      if (strk) {
+        ctx.strokeStyle = 'purple'
+        ctx.stroke()
+      }
     }
     for (let i = 0; i <= this.ellipse.length - 1; i++) {
       drawBoundingEllipse(i)
