@@ -69,7 +69,7 @@
       if(isRemaining){
         const completeCheckbox = document.createElement("input");
         completeCheckbox.type = "checkbox";
-        completeCheckbox.id = "completeCheckbox"; // Set a unique ID for the checkbox if needed
+        completeCheckbox.id = "completeCheckbox"; 
         completeCheckbox.addEventListener("change", function () {
             if (completeCheckbox.checked) {
                 moveTask(todoItem, completedField);
@@ -88,7 +88,7 @@
       if(isCompleted){
         const remainingCheckbox = document.createElement("input");
         remainingCheckbox.type = "checkbox";
-        remainingCheckbox.id = "remainingCheckbox"; // Set a unique ID for the checkbox if needed
+        remainingCheckbox.id = "remainingCheckbox"; 
         remainingCheckbox.addEventListener("change", function () {
             if (remainingCheckbox.checked) {
                 moveTask(todoItem, remainingField);
