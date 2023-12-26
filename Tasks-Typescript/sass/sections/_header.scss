@@ -1,0 +1,31 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    &__nav{
+        margin: 0 auto;
+        width: 100%;
+        padding: 1rem;
+        border-bottom: 1px solid #00A67E;
+        display: flex;
+        justify-content: space-around;
+        @media screen and (min-width: 768px) {
+            font-size: 1.5rem;
+            width: 50%;
+        }
+        &--item{
+            font-size: 1rem;
+            font-weight: bold;
+            @media screen and (min-width: 768px) {
+                font-size: 1.5rem;
+            }
+        }
+        &--item a:hover,&--item.active a{
+            color: #007459;
+        }
+        
+    }
+}

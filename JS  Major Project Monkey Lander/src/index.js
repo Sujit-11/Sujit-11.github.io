@@ -30,32 +30,32 @@ let state = 0
 let levelValue = 0
 let score = 0
 let scoreEffects = []
-let highscore = localStorage.getItem("highscore") || 0
+let highscore = localStorage.getItem('highscore') || 0
 let paused = false
 
-let strk = false // Use to see the boundary line stroke
+let strk = true // Use to see the boundary line stroke
 
-function update(){
-  if(state != inGame){
+function update() {
+  if (state != inGame) {
     return
   }
-  menuDiv.style.display = "none"
-  canvas.style.display = "block"
+  menuDiv.style.display = 'none'
+  canvas.style.display = 'block'
   level.update(ctx)
 }
 
-function menu(){
+function menu() {
   if (state != mainMenu) {
-    return;
+    return
   }
-  menuDiv.style.display = "block"
-  canvas.style.display = "none"
+  menuDiv.style.display = 'block'
+  canvas.style.display = 'none'
   levelValue = 0
 }
 
-function gameOvr(){
-  if(state != gameEnd){
-    return;
+function gameOvr() {
+  if (state != gameEnd) {
+    return
   }
   gameOver.update(ctx)
 }
