@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/Tasks-Typescript/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASKS-TSC</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script type="module" crossorigin src="/Tasks-Typescript/assets/index-blsrAT0Y.js"></script>
+    <link rel="stylesheet" crossorigin href="/Tasks-Typescript/assets/index-rrsou3Ck.css">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+          <ul class="header__nav">
+              <li class="header__nav--item"><a href="#">Home</a></li>
+              <li class="header__nav--item completed"><a href="#">Completed</a></li>
+              <li class="header__nav--item remaining"><a href="#">Remaining</a></li>
+          </ul>
+          <input type="text" id="search" placeholder="Search...">
+        </header>
+      <section class="wrapper ">
+          <div class="addTodo">
+              <h3>Add New Task</h3>
+              <form class="addTodo__form">
+                  <input
+                    type="text"
+                    placeholder="Add task title"
+                    class="addTodo__form--title"
+                    required
+                  />
+                  <textarea
+                    rows="3"
+                    placeholder="Add description"
+                    class="addTodo__form--desc"
+                  ></textarea>
+                  <button  type="submit">Add Task</button>
+                </form>
+          </div>
+
+          <div class="wrapper__field">
+            <div id="remaining" class="task-container">
+                <!-- <h2>Remaining Tasks</h2> -->
+                  <!-- Remaining tasks will be added here dynamically -->
+              </div>
+              <div id="completed" class="task-container">
+                <!-- <h2>Completed Tasks</h2> -->
+                  <!-- Completed tasks will be added here dynamically -->
+              </div>
+          </div>
+
+          <div class="field">
+            <div id="completed" class="task-container">
+                <!-- <h2>Completed Tasks</h2> -->
+                  <!-- Completed tasks will be added here dynamically -->
+              </div>
+          </div>
+      </section>
+    </div>
+  </body>
+</html>
