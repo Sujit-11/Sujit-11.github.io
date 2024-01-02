@@ -8,6 +8,10 @@ app.use(express.json());
 
 dotenv.config();
 
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
 app.use('/todos', todoRoutes);
 app.use('/users', userRoutes);
 
