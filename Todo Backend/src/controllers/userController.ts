@@ -16,7 +16,6 @@ export const register = async (req: Request, res: Response) => {
     email: req.body.email,
     password: hashedPassword,
   };
-  console.log(user)
   Users.push(user);
   res.status(201).json(user);
 };
@@ -24,9 +23,8 @@ export const register = async (req: Request, res: Response) => {
 export const login = async (req: Request, res: Response) => {
   const user = Users.find((u) => u.email === req.body.email);
   if (user == null) return res.status(400).send('Cannot find user');
-  console.log(user);
+
   const validPassword = await bcrypt.compare(req.body.password, user.password);
-  console.log(validPassword);
   if (validPassword) {
     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET!, {
       expiresIn: '30s',
