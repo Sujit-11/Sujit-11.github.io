@@ -30,11 +30,6 @@ export const getTodoById = (req: Request, res: Response, next: NextFunction) => 
 
 export const createTodo = (req: Request, res: Response, next: NextFunction) => {
   try {
-    // const todo = TodoService.createTodo(
-    //   req.body.title,
-    //   req.body.completed,
-    //   req.body.userid
-    // );
     const todo = TodoService.createTodo(
       createData(req.body)
     );
@@ -44,18 +39,6 @@ export const createTodo = (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-// export const updateTodo = (req: Request, res: Response, next: NextFunction) => {
-//   try {
-//     const todo = TodoService.updateTodo(
-//       parseInt(req.params.id),
-//       req.body.title,
-//       req.body.completed
-//     );
-//     res.json(todo);
-//   } catch (err) {
-//     next(err);
-//   }
-// };
 export const updateTodo = (req: Request, res: Response, next: NextFunction) => {
   try {
     const todo = TodoService.updateTodo(
