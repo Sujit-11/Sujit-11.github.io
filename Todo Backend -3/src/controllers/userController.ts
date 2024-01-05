@@ -2,9 +2,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { UserService } from '../service/userService';
 
-export const getUsers = (req: Request, res: Response, next: NextFunction) => {
+export const getUsers = async(req: Request, res: Response, next: NextFunction) => {
   try {
-    const users = UserService.getUsers();
+    const users = await UserService.getUsers();
     res.json(users);
   } catch (err) {
     next(err);

@@ -1,4 +1,3 @@
-// TodoController.ts
 import { Request, Response, NextFunction } from 'express';
 import { TodoService } from '../service/todoService';
 import { Todo } from "../model/TodoModel";
@@ -13,10 +12,10 @@ export const getTodos =async(req: Request, res: Response, next: NextFunction) =>
   }
 };
 
-export const getTodoById = (req: Request, res: Response, next: NextFunction) => {
+export const getTodoById = async(req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.body.userid;
-    const todo = TodoService.getTodoById(parseInt(req.params.id),userId);
+    const todo = (await TodoService.getTodoById(parseInt(req.params.id),userId));
     if (todo) {
       res.json(todo);
     } else {
@@ -28,20 +27,20 @@ export const getTodoById = (req: Request, res: Response, next: NextFunction) => 
 };
 
 
-export const createTodo = (req: Request, res: Response, next: NextFunction) => {
+export const createTodo = async(req: Request, res: Response, next: NextFunction) => {
   try {
-    const todo = TodoService.createTodo(
-      createData(req.body)
-    );
+    const todo = (await TodoService.createTodo(
+      createData(req)
+    ));
     res.status(201).json({todo});
   } catch (err) {
     next(err);
   }
 };
 
-export const updateTodo = (req: Request, res: Response, next: NextFunction) => {
+export const updateTodo = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const todo = TodoService.updateTodo(
+    const todo = await TodoService.updateTodo(
       parseInt(req.params.id),
       createData(req)
     );
@@ -51,10 +50,10 @@ export const updateTodo = (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export const deleteTodo = (req: Request, res: Response, next: NextFunction) => {
+export const deleteTodo = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.body.userid;
-    const todo = TodoService.deleteTodo(parseInt(req.params.id),userId);
+    const todo = await TodoService.deleteTodo(parseInt(req.params.id),userId);
     res.json(todo);
   } catch (err) {
     next(err);
@@ -62,7 +61,9 @@ export const deleteTodo = (req: Request, res: Response, next: NextFunction) => {
 };
 
 const createData = (req: Request) => {
+  console.log()
   const user = (req as CustomRequest).user;
+  console.log(user);
   return { ...req.body, userid: user.id };
 };
 

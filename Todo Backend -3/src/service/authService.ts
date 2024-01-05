@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import Users from '../data/Users';
-import * as userRepo from "../Repositories/UserRepo";
+import * as userRepo from '../Repositories/UserRepo';
 
 let refreshTokens: string[] = [];
 
@@ -15,7 +15,7 @@ export class AuthService {
     if (!validPassword) throw new Error('Not Allowed');
 
     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET!, {
-      expiresIn: '30s',
+      expiresIn: '1800s',
     });
     const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET!);
     refreshTokens.push(refreshToken);
@@ -39,7 +39,7 @@ export class AuthService {
     const accessToken = jwt.sign(
       { name: user.name },
       process.env.ACCESS_TOKEN_SECRET!,
-      { expiresIn: '30s' }
+      { expiresIn: '1800s' }
     );
     return { accessToken: accessToken };
   }
