@@ -13,5 +13,5 @@ export const userParamsSchema = Joi.object({
 export const signupSchema = Joi.object({
     name : Joi.string().required(),
     email : Joi.string().email().required(),
-    password : Joi.string().required().min(5),
+    password : Joi.string().required().min(8),
 })
