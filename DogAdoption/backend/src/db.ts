@@ -2,7 +2,7 @@ import camelCase from "camelize";
 import knex, { Knex } from "knex";
 import toSnakeCase from "to-snake-case";
 
-import { baseKnexConfig } from "./knexFile";
+import { baseKnexConfig } from "./knexfile";
 import { NextFunction } from "express";
 
 const knexConfig: Knex.Config = {
