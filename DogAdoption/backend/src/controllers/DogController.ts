@@ -1,6 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response } from 'express';
+import { DogModel } from '../model/DogModel';
 import { DogService } from '../services/DogService';
-import { CustomRequest } from '../interface/CustomRequest';
+import { UserModel } from '../model/UserModel';
 
 export const createDog = async (
   req: Request,
@@ -8,15 +9,14 @@ export const createDog = async (
   next: NextFunction
 ) => {
   try {
-    const user = (req as CustomRequest).user;
-    const dog = await DogService.createDog(createData(req));
-    res.status(201).json({ dog });
+    const user: UserModel = res.locals.user;
+    console.log('User' + user.id);
+    const dog: DogModel = req.body;
+    dog.user_id = user.id;
+    const data = await DogService.createDog(dog);
+
+    res.status(201).json({ data });
   } catch (err) {
     next(err);
   }
-};
-
-const createData = (req: Request) => {
-  const user = (req as CustomRequest).user;
-  return { ...req.body, user_id: user.id };
 };

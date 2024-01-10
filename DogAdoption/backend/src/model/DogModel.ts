@@ -6,7 +6,7 @@ export class DogModel {
   address: string;
   age: number;
   gender: string;
-  userid: number;
+  user_id: number;
   constructor(
     name: string,
     image: string,
@@ -14,7 +14,7 @@ export class DogModel {
     address: string,
     age: number,
     gender: string,
-    userid: number
+    user_id: number
   ) {
     this.name = name;
     this.image = image;
@@ -22,6 +22,6 @@ export class DogModel {
     this.address = address;
     this.age = age;
     this.gender = gender;
-    this.userid = userid;
+    this.user_id = user_id;
   }
 }
