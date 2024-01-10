@@ -2,26 +2,26 @@ export class DogModel {
   id: number;
   name: string;
   image: string;
-  avaiability: boolean;
+  availability: boolean;
   address: string;
   age: number;
   gender: string;
-  user_id: number;
+  userId: number;
   constructor(
     name: string,
     image: string,
-    avaiability: boolean,
+    availability: boolean,
     address: string,
     age: number,
     gender: string,
-    user_id: number
+    userId: number
   ) {
     this.name = name;
     this.image = image;
-    this.avaiability = avaiability;
+    this.availability = availability;
     this.address = address;
     this.age = age;
     this.gender = gender;
-    this.user_id = user_id;
+    this.userId = userId;
   }
 }

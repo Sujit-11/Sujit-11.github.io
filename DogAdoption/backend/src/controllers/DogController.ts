@@ -3,6 +3,33 @@ import { DogModel } from '../model/DogModel';
 import { DogService } from '../services/DogService';
 import { UserModel } from '../model/UserModel';
 
+export const getDog = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const test = await DogService.getDog();
+    const dog = test.map((Dog) => responseData(Dog));
+    res.json({ dog });
+  } catch (err) {
+    next(err);
+  }
+};
+export const getDogByUserId = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const test = await DogService.getDogByUserId();
+    // const dog = test.map((Dog) => responseData(Dog));
+    res.json({ test });
+  } catch (err) {
+    next(err);
+  }
+};
+
 export const createDog = async (
   req: Request,
   res: Response,
@@ -10,13 +37,38 @@ export const createDog = async (
 ) => {
   try {
     const user: UserModel = res.locals.user;
-    console.log('User' + user.id);
     const dog: DogModel = req.body;
-    dog.user_id = user.id;
+    dog.userId = user.id;
     const data = await DogService.createDog(dog);
 
     res.status(201).json({ data });
   } catch (err) {
     next(err);
   }
+};
+
+export const deleteDog = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const userId = res.locals.user.id;
+    console.log(userId);
+    const dog = await DogService.deleteDog(parseInt(req.params.id), userId);
+    res.json(dog);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const responseData = (Dog: DogModel | undefined) => {
+  if (!Dog) return null;
+  return {
+    name: Dog.name,
+    age: Dog.age,
+    availability: Dog.availability,
+    id: Dog.id,
+    userid: Dog.userId,
+  };
 };

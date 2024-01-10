@@ -1,6 +1,6 @@
-import { Knex } from "knex";
+import { Knex } from 'knex';
 
-import db from "../db";
+import db from '../db';
 
 export function getConnectionOrTransaction(
   connection: Knex,

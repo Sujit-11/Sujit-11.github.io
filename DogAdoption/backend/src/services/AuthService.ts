@@ -22,7 +22,7 @@ export class AuthService {
     if (!validPassword) throw new Error('Not Allowed');
 
     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET!, {
-      expiresIn: '1800s',
+      expiresIn: '1h',
     });
     const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET!);
     refreshTokens.push(refreshToken);
@@ -33,10 +33,12 @@ export class AuthService {
     if (refreshToken == null) throw new Error('No token provided');
     if (!refreshTokens.includes(refreshToken)) throw new Error('Invalid token');
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let user: any;
     jwt.verify(
       refreshToken,
       process.env.REFRESH_TOKEN_SECRET!,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (err: any, u: any) => {
         if (err) throw new Error('Invalid token');
         user = u;
