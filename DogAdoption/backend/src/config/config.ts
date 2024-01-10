@@ -8,6 +8,11 @@ const serverConfig = {
   APP_NAME: 'DogAdoption',
   PORT: process.env.PORT || 3000,
 
+  jwt: {
+    accessTokenSecret: process.env.ACCESS_TOKEN_SECRET,
+    refreshTokenSecret: process.env.REFRESH_TOKEN_SECRET,
+  },
+
   database: {
     charset: 'utf8',
     client: process.env.DB_CLIENT,

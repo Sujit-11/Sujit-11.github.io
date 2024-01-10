@@ -15,3 +15,10 @@ export const signupSchema = Joi.object({
     email : Joi.string().email().required(),
     password : Joi.string().required().min(8),
 })
+
+export const addDogSchema = Joi.object({
+    name : Joi.string().required(),
+    age : Joi.number().required(),
+    address: Joi.string().required(),
+    gender : Joi.string().required(),
+})
