@@ -14,16 +14,7 @@ export const getUserByEmail = (email: string) => {
   return query.select(selectFormat).from('users').where({ email }).first();
 };
 export const addUser = async (user: UserModel) => {
-  const existingUser = await query
-    .select(selectFormat)
-    .from('users')
-    .where({ email: user.email })
-    .first();
-  if (existingUser) {
-    return 'Email already exists';
-  }
   await query.insert(user).into('users');
-  return 'User Signed Up Sucessfully';
 };
 
 export const updateUser = (user: UserModel) => {

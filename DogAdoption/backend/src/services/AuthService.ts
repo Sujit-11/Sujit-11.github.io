@@ -2,15 +2,24 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { UserModel } from '../model/UserModel';
 import * as userRepo from '../Repositories/UserRepo';
+import BadRequestError from '../error/badRequestError';
 
 let refreshTokens: string[] = [];
 
 export class AuthService {
-    
   static async register(user: UserModel) {
-    const hashedPassword = await bcrypt.hash(user.password, 10);
-    user.password = hashedPassword;
-    return userRepo.addUser(user);
+    // eslint-disable-next-line no-useless-catch
+    try {
+      const existingUser = await userRepo.getUserByEmail(user.email);
+      if (existingUser) {
+        throw new BadRequestError('User already exists');
+      }
+      const hashedPassword = await bcrypt.hash(user.password, 10);
+      user.password = hashedPassword;
+      return userRepo.addUser(user);
+    } catch (error) {
+      throw error;
+    }
   }
 
   static async login(email: string, password: string) {

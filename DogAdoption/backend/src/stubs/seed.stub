@@ -19,8 +19,4 @@ export function seed(knex: Knex): Promise<void> {
         },
         {
           colName: 'rowValue',
-          colName2: 'rowValue'
-        }
-      ]);
-    });
-}
+          

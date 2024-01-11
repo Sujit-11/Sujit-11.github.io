@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { AuthService } from '../services/AuthService';
+import stat from 'http-status-codes';
 
 export const register = async (
   req: Request,
@@ -8,8 +9,10 @@ export const register = async (
 ) => {
   try {
     const body = req.body;
-    const user = await AuthService.register(body);
-    res.status(201).json(user);
+    await AuthService.register(body);
+    res.status(stat.ACCEPTED).json({
+      message: 'User Registered successful.',
+    });
   } catch (err) {
     next(err);
   }

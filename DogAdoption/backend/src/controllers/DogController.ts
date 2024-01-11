@@ -22,9 +22,8 @@ export const getDogByUserId = async (
   next: NextFunction
 ) => {
   try {
-    const test = await DogService.getDogByUserId();
-    // const dog = test.map((Dog) => responseData(Dog));
-    res.json({ test });
+    const dog = await DogService.getDogByUserId();
+    res.json({ dog });
   } catch (err) {
     next(err);
   }

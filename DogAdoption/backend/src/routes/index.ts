@@ -4,11 +4,10 @@ import authRoutes from './AuthRoute';
 import dogRoutes from './DogRoute';
 // import { authJwt } from '../middlewares/Auth';
 
-
 const router = Router();
 
 router.use('/user', userRoutes);
-router.use('/auth', authRoutes);
+router.use(authRoutes);
 router.use('/dog', dogRoutes);
 
 export default router;

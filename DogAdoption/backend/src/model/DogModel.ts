@@ -8,7 +8,7 @@ export class DogModel {
   gender: string;
   userId: number;
   constructor(
-    name: string,
+    name: string,    //object banaune
     image: string,
     availability: boolean,
     address: string,
