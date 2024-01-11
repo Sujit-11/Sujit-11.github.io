@@ -100,7 +100,7 @@ const sendPostRequest = async (
       password,
     });
 
-    console.log(response.status);
+    // console.log(response.status);
     if (response.status === HttpStatusCode.Accepted) {
       successMessage.classList.remove('d-none');
       successMessage.innerHTML = 'User Registered successfully';

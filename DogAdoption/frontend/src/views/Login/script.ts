@@ -4,9 +4,13 @@ import http from '../../service/HttpClient';
 import { HttpStatusCode } from 'axios';
 
 const loginForm = document.getElementById('form-login') as HTMLFormElement;
-const loginValidationError = document.getElementById('login-error-message') as HTMLElement;
+const loginValidationError = document.getElementById(
+  'login-error-message'
+) as HTMLElement;
 const emailInput = document.getElementById('login-email') as HTMLInputElement;
-const passwordInput = document.getElementById('login-password') as HTMLInputElement;
+const passwordInput = document.getElementById(
+  'login-password'
+) as HTMLInputElement;
 
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -50,14 +54,12 @@ const sendPostRequestForLogin = async (email: string, password: string) => {
     });
 
     if (response.status === HttpStatusCode.Ok) {
-
       // Handle successful login here
-      // For example, redirect to the dashboard or user profile page
-
-      
+      console.log('Login successful');
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
+    console.log(error.response.status);
     if (error.response.status == HttpStatusCode.Unauthorized) {
       loginValidationError.classList.remove('d-none');
       loginValidationError.innerHTML = 'Invalid email or password';

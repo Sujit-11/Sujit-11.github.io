@@ -36,6 +36,7 @@ export function genericErrorHandler(
     return res.status(HttpStatus.UNAUTHORIZED).json({ message: err.message });
   }
 
+
   return res
     .status(HttpStatus.INTERNAL_SERVER_ERROR)
     .json({ message: err.message });

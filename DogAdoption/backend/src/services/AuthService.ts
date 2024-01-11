@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import { UserModel } from '../model/UserModel';
 import * as userRepo from '../Repositories/UserRepo';
 import BadRequestError from '../error/badRequestError';
+import UnauthenticatedError from '../error/unauthenticatedError';
 
 let refreshTokens: string[] = [];
 
@@ -25,10 +26,10 @@ export class AuthService {
   static async login(email: string, password: string) {
     // const user = Users.find((u) => u.email === email);
     const user = await userRepo.getUserByEmail(email);
-    if (user == null) throw new Error('Cannot find user');
+    if (user == null) throw new UnauthenticatedError('Cannot find user');
 
     const validPassword = await bcrypt.compare(password, user.password);
-    if (!validPassword) throw new Error('Not Allowed');
+    if (!validPassword) throw new UnauthenticatedError('Not Allowed');
 
     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET!, {
       expiresIn: '1h',
