@@ -25,7 +25,7 @@ export const login = async (
 ) => {
   try {
     const tokens = await AuthService.login(req.body.email, req.body.password);
-    res.json(tokens);
+    res.status(stat.OK).json(tokens);
   } catch (err) {
     next(err);
   }

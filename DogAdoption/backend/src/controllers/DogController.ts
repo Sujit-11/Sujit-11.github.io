@@ -9,8 +9,8 @@ export const getDog = async (
   next: NextFunction
 ) => {
   try {
-    const test = await DogService.getDog();
-    const dog = test.map((Dog) => responseData(Dog));
+    const dog = await DogService.getDog();
+    // const dog = test.map((Dog) => responseData(Dog));
     res.json({ dog });
   } catch (err) {
     next(err);
@@ -61,13 +61,13 @@ export const deleteDog = async (
   }
 };
 
-const responseData = (Dog: DogModel | undefined) => {
-  if (!Dog) return null;
-  return {
-    name: Dog.name,
-    age: Dog.age,
-    availability: Dog.availability,
-    id: Dog.id,
-    userid: Dog.userId,
-  };
-};
+// const responseData = (Dog: DogModel | undefined) => {
+//   if (!Dog) return null;
+//   return {
+//     name: Dog.name,
+//     age: Dog.age,
+//     availability: Dog.availability,
+//     id: Dog.id,
+//     userid: Dog.userId,
+//   };
+// };
