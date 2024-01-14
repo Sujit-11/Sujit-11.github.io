@@ -21,4 +21,5 @@ export const addDogSchema = Joi.object({
   age: Joi.number().required(),
   address: Joi.string().required(),
   gender: Joi.string().required(),
+  image:Joi.string().required()
 });

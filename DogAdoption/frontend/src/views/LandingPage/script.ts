@@ -13,22 +13,47 @@ window.onload = () => {
 };
 
 function createDogCard(dog: Dog) {
-  return `
-      <div class="col-md-4 mb-2">
-        <div class="card">
-        <img class="card-img-top" src="${dog.image}.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">${dog.name}</h5>
-            <p class="card-text">Gender: ${dog.gender}</p>
-            <p class="card-text">Age: ${dog.age}</p>
-            <p class="card-text">ID: ${dog.id}</p>
-            <button type="button" class="adoptionBtn btn btn-primary" data-bs-toggle="modal" data-bs-target="#adoptionModal" >
-              Adopt Me!
-            </button>
-          </div>
-        </div>
+  // return `
+  //     <div class="col-md-4 mb-2">
+  //       <div class="card">
+  //       <img class="card-img-top" src="${dog.image}" style="width:100%; height:200px; object-fit:cover;" alt="Card image cap">
+  //         <div class="card-body">
+  //           <h5 class="card-title">${dog.name}</h5>
+  //           <p class="card-text">Gender: ${dog.gender}</p>
+  //           <p class="card-text">Age: ${dog.age}</p>
+  //           <p class="card-text">ID: ${dog.id}</p>
+  //           <button type="button" class="adoptionBtn btn btn-primary" data-bs-toggle="modal" data-bs-target="#adoptionModal" >
+  //             Adopt Me!
+  //           </button>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   `;
+  return `<div class="col-md-4 mb-5">
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img class="card-img-top" src="${dog.image}" style="width:100%; height:300px; object-fit:cover;" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">${dog.name}</h5>
       </div>
-    `;
+    </div>
+    <div class="flip-card-back">
+      <div class="card-body">
+        <h5 class="card-title">About ${dog.name}</h5>
+        <p class="card-text">Gender: ${dog.gender}</p>
+        <p class="card-text">Age: ${dog.age}</p>
+        <p class="card-text">ID: ${dog.id}</p>
+        <button type="button" class="adoptionBtn btn btn-primary" data-bs-toggle="modal" data-bs-target="#adoptionModal" >
+            Adopt Me!
+           </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+ `;
 }
 
 async function fetchAndDisplayDogs(): Promise<void> {

@@ -1,5 +1,3 @@
-// import * as bootstrap from 'bootstrap';
-
 import validToken from '../../service/CheckAuth';
 
 const displayNav = (placeholder: HTMLElement, active: string) => {
@@ -18,6 +16,7 @@ const displayNav = (placeholder: HTMLElement, active: string) => {
 
       const homeElement = document.getElementById('nav-home');
       const requestElement = document.getElementById('nav-requests');
+      const donateDogElement = document.getElementById('nav-donatedog');
       const myDogElement = document.getElementById('nav-mydog');
       // const profileElement = document.getElementById('profile-dropdown');
       const loginElement = document.getElementById('nav-login');
@@ -34,6 +33,7 @@ const displayNav = (placeholder: HTMLElement, active: string) => {
       if (isLoggedIn) {
         // User is logged in, hide login and signup elements
         homeElement?.classList.remove('d-none');
+        donateDogElement?.classList.remove('d-none');
         requestElement?.classList.remove('d-none');
         myDogElement?.classList.remove('d-none');
         // profileElement?.classList.remove('d-none');
@@ -43,6 +43,7 @@ const displayNav = (placeholder: HTMLElement, active: string) => {
       } else {
         // User is logged out, show login and signup elements
         homeElement?.classList.add('d-none');
+        donateDogElement?.classList.add('d-none');
         requestElement?.classList.add('d-none');
         myDogElement?.classList.add('d-none');
         // profileElement?.classList.add('d-none');

@@ -7,12 +7,11 @@ export const getAllDogs = () => {
   return query.select('*').from('dogs');
 };
 
-export const getDogById = (id: number, userId: number) => {
+export const getDogByUserId = ( userId: number) => {
   return query
-    .select({ id: 'dogs.id', userId: 'dogs.user_id' })
+    .select('*')
     .from('dogs')
-    .where({ id, userId })
-    .first();
+    .where({ userId });
 };
 
 export const addDog = async (dog: DogModel) => {

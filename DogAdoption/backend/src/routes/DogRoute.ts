@@ -2,7 +2,6 @@ import { Router } from 'express';
 import {
   getDog,
   createDog,
-  deleteDog,
   getDogByUserId,
 } from '../controllers/DogController';
 import { validateReqBody } from '../middlewares/Validator';
@@ -13,5 +12,5 @@ const router = Router();
 router.get('/', getDog);
 router.get('/:id',authJwt, getDogByUserId);
 router.post('/', authJwt, validateReqBody(addDogSchema), createDog);
-router.delete('/:id', authJwt, deleteDog);
+// router.delete('/:id', authJwt, deleteDog);
 export default router;
