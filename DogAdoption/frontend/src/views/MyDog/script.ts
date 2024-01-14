@@ -3,11 +3,13 @@ import displayNav from '../../components/Navbar/navbar';
 import Dog from '../../interface/Dog';
 import http from '../../service/HttpClient';
 import * as bootstrap from 'bootstrap';
+import { isLoggedIn } from '../../utils/utils';
 
 const navBar = document.getElementById('navbar-placeholder') as HTMLElement;
 
 window.onload = () => {
   displayNav(navBar, 'nav-mydog');
+  isLoggedIn();
   fetchAndDisplayDogs();
 };
 

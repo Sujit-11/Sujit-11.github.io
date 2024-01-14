@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios, { HttpStatusCode } from 'axios';
 import '../../assets/scss/style.scss';
 import displayNav from '../../components/Navbar/navbar';
 import http from '../../service/HttpClient';
-import { HttpStatusCode } from 'axios';
+import { isLoggedIn } from '../../utils/utils';
 // Define a global variable to store the selected file
 let selectedFile: File | null = null;
 
@@ -11,6 +11,7 @@ const addDogForm = document.getElementById('form-addDog') as HTMLFormElement;
 
 window.onload = () => {
   displayNav(navBar, 'nav-donatedog');
+  isLoggedIn();
   setupFileInputListener();
 };
 

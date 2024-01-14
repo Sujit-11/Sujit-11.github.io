@@ -29,7 +29,6 @@ const displayNav = (placeholder: HTMLElement, active: string) => {
       });
 
       const isLoggedIn = validToken();
-      console.log(isLoggedIn);
       if (isLoggedIn) {
         // User is logged in, hide login and signup elements
         homeElement?.classList.remove('d-none');
