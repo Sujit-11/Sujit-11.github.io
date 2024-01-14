@@ -53,6 +53,7 @@ registerForm.addEventListener('submit', async (e) => {
     await sendPostRequest(username, email, password);
   }
 });
+
 const validateInput = (
   username: string,
   email: string,
@@ -102,12 +103,14 @@ const sendPostRequest = async (
 
     // console.log(response.status);
     if (response.status === HttpStatusCode.Accepted) {
+      validationError.classList.add('d-none');
       successMessage.classList.remove('d-none');
       successMessage.innerHTML = 'User Registered successfully';
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     if (error.response.status == HttpStatusCode.BadRequest) {
+      successMessage.classList.add('d-none');
       validationError.classList.remove('d-none');
       validationError.innerHTML = error.response.data.message;
     }

@@ -52,14 +52,15 @@ const sendPostRequestForLogin = async (email: string, password: string) => {
       email,
       password,
     });
-
+    console.log(response);
     if (response.status === HttpStatusCode.Ok) {
-      // Handle successful login here
+      localStorage.setItem('Jwt', response.data.accessToken);
+      window.location.href = '/src/views/landingpage/';
       console.log('Login successful');
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    console.log(error.response.status);
+    console.log(error.response);
     if (error.response.status == HttpStatusCode.Unauthorized) {
       loginValidationError.classList.remove('d-none');
       loginValidationError.innerHTML = 'Invalid email or password';
