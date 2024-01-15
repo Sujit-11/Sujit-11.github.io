@@ -22,13 +22,14 @@ async function fetchAdoptionRequests(): Promise<void> {
 
     if (response.status === HttpStatusCode.Accepted) {
       displayAdoptionRequests(response.data);
-    } 
+    }
   } catch (error) {
     console.log('error', error);
   }
 }
 
 // Function to display adoption requests on the page
+// Function to display adoption requests on the page using Bootstrap
 function displayAdoptionRequests(requests: AdoptionRequest[]): void {
   const requestsContainer: HTMLElement | null =
     document.getElementById('requests-container');
@@ -38,13 +39,15 @@ function displayAdoptionRequests(requests: AdoptionRequest[]): void {
 
     requests.forEach((request: AdoptionRequest) => {
       const requestElement: HTMLDivElement = document.createElement('div');
-      requestElement.className = 'request';
+      requestElement.className = 'card mb-3';
       requestElement.innerHTML = `
-        <h3>${request.dogName}</h3>
-        <p>Requested by: ${request.requesterName}</p>
-        <p>Contact: ${request.adoptionPhone}</p>
-        <p>Message: ${request.adoptionInterest}</p>
-      `;
+          <div class="card-body">
+            <h5 class="card-title">Dog: ${request.dogName}</h5>
+            <p class="card-text">Requested by: ${request.requesterName}</p>
+            <p class="card-text">Contact: ${request.adoptionPhone}</p>
+            <p class="card-text">Message: ${request.adoptionInterest}</p>
+          </div>
+        `;
       requestsContainer.appendChild(requestElement);
     });
   } else {
