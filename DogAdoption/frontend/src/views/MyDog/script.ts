@@ -43,14 +43,12 @@ async function fetchAndDisplayDogs(): Promise<void> {
   try {
     const token = localStorage.getItem('Jwt') || '';
     const userId = getUserIdFromToken(token);
-    console.log(userId);
     const response = await http.get<{ dog: Dog[] }>(`/dog/${userId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('Jwt')}`,
       },
     });
     const dogs: Dog[] = response.data.dog;
-    console.log(dogs);
     const dogCards: string = dogs.map(createDogCard).join(' ');
     const dogCardsContainer = document.getElementById('dog-cards');
     if (dogCardsContainer) {

@@ -33,7 +33,7 @@ export const getAdoptReq = async (
   try {
     const user: UserModel = res.locals.user;
     const adoptReq = await AdoptReqService.getAdoptReqByOwnerId(user.id);
-    res.status(stat.ACCEPTED).json({ adoptReq });
+    res.status(stat.ACCEPTED).json(adoptReq);
   } catch (error) {
     next(error);
   }
