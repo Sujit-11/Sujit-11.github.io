@@ -14,9 +14,11 @@ export class DogService {
     return dogRepo.addDog(dog);
   }
 
-  // static async deleteDog(id: number, userid: number) {
-  //   const dog = await dogRepo.getDogById(userid);
-  //   if (!dog) throw new Error('The dog with the given id was not found.');
-  //   return dogRepo.deleteDog(id);
-  // }
+  static async deleteDog(id: number) {
+    return dogRepo.deleteDog(id);
+  }
+
+  static async updateDog(id: number, dogData: Partial<DogModel>) {
+    return dogRepo.updateDog(id, dogData);
+  }
 }

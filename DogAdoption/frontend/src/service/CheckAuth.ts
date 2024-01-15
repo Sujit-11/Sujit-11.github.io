@@ -10,6 +10,9 @@ function isTokenExpired(token: string): boolean {
   return exp < currentTime;
 }
 
+
+
+
 // Updated validToken function to check for expiration
 const validToken = (): boolean => {
   if (token === '') {

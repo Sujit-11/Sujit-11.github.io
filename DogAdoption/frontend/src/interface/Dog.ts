@@ -2,7 +2,7 @@ interface Dog {
   image: string;
   name: string;
   gender: string;
-  description: string;
+  address: string;
   age: number;
   id: number;
 }

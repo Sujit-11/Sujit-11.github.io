@@ -50,20 +50,34 @@ export const createDog = async (
   }
 };
 
-// export const deleteDog = async (
-//   req: Request,
-//   res: Response,
-//   next: NextFunction
-// ) => {
-//   try {
-//     const userId = res.locals.user.id;
-//     console.log(userId);
-//     const dog = await DogService.deleteDog(parseInt(req.params.id), userId);
-//     res.json(dog);
-//   } catch (err) {
-//     next(err);
-//   }
-// };
+export const deleteDog = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const dog = await DogService.deleteDog(parseInt(req.params.id));
+    res.json(dog);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const updateDog = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const dogId = parseInt(req.params.id);
+    const dogData: Partial<DogModel> = req.body;
+    const updatedDog = await DogService.updateDog(dogId, dogData);
+    res.json({ message: 'Dog updated successfully', updatedDog });
+  } catch (err) {
+    next(err);
+  }
+};
+
 
 // const responseData = (Dog: DogModel | undefined) => {
 //   if (!Dog) return null;
