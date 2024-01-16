@@ -14,11 +14,6 @@ app.use(cors({
   methods:'*',
 }));
 
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
 app.use(routes);
 
 app.use(genericErrorHandler);

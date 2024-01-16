@@ -3,8 +3,11 @@ import '../../assets/scss/style.scss';
 import displayNav from '../../components/Navbar/navbar';
 import AdoptionRequest from '../../interface/AdoptionRequest';
 import http from '../../service/HttpClient';
+import showErrorResponse from '../../utils/ErrorResponse';
+import { showToast } from '../../utils/Toast';
 
 const navBar = document.getElementById('navbar-placeholder') as HTMLElement;
+const toast = document.getElementById('toast') as HTMLElement;
 
 window.onload = () => {
   displayNav(navBar, 'nav-requests');
@@ -24,12 +27,11 @@ async function fetchAdoptionRequests(): Promise<void> {
       displayAdoptionRequests(response.data);
     }
   } catch (error) {
-    console.log('error', error);
+    showErrorToast(error);
   }
 }
 
 // Function to display adoption requests on the page
-// Function to display adoption requests on the page using Bootstrap
 function displayAdoptionRequests(requests: AdoptionRequest[]): void {
   const requestsContainer: HTMLElement | null =
     document.getElementById('requests-container');
@@ -54,3 +56,9 @@ function displayAdoptionRequests(requests: AdoptionRequest[]): void {
     console.log('Element with ID "requests-container" not found.');
   }
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const showErrorToast = (error: any) => {
+  const message = showErrorResponse(error) || error;
+  showToast(message, toast, 'error');
+};

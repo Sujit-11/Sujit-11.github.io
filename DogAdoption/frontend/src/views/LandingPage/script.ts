@@ -4,17 +4,20 @@ import displayNav from '../../components/Navbar/navbar';
 import Dog from '../../interface/Dog';
 import http from '../../service/HttpClient';
 import * as bootstrap from 'bootstrap';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { showToast } from '../../utils/Toast';
+import showErrorResponse from '../../utils/ErrorResponse';
 
 const navBar = document.getElementById('navbar-placeholder') as HTMLElement;
 const adoptionForm = document.getElementById('adoptionForm') as HTMLFormElement;
+const toast = document.getElementById('toast') as HTMLElement;
+
 window.onload = () => {
   displayNav(navBar, 'nav-home');
   fetchAndDisplayDogs();
 };
 
 function createDogCard(dog: Dog) {
-  return `<div class="col-md-4 mb-5">
+  return `<div class="col-md-3 mb-5">
   <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
@@ -41,6 +44,10 @@ function createDogCard(dog: Dog) {
  `;
 }
 
+const adoptMeModal = bootstrap.Modal.getOrCreateInstance(
+  document.getElementById('adoptionModal') as HTMLInputElement
+);
+
 async function fetchAndDisplayDogs(): Promise<void> {
   try {
     const response = await http.get<{ dog: Dog[] }>('/dog');
@@ -51,23 +58,19 @@ async function fetchAndDisplayDogs(): Promise<void> {
       dogCardsContainer.innerHTML = dogCards;
       const adoptMeButton = dogCardsContainer.querySelectorAll('.adoptionBtn');
       adoptMeButton.forEach((button) => {
-        button.addEventListener('click', (event)=>{
+        button.addEventListener('click', (event) => {
           const button = event.currentTarget as HTMLButtonElement;
           const dogId = button.getAttribute('data-dog-id') as string; // Get the dog ID from the button
-          console.log(dogId);
           adoptionForm?.setAttribute('data-dog-id', dogId);
 
-          const adoptMeModal = bootstrap.Modal.getOrCreateInstance(
-            document.getElementById('adoptionModal') as HTMLInputElement
-          );
           adoptMeModal.show();
         });
       });
     } else {
-      console.error('Element with ID "dogCards" not found.');
+      console.log('Element with ID "dogCards" not found.');
     }
   } catch (error) {
-    console.log(error);
+    showErrorToast(error);
   }
 }
 
@@ -97,9 +100,18 @@ adoptionForm.addEventListener('submit', async (e) => {
 
     // Check the response status
     if (submitResponse.status === HttpStatusCode.Accepted) {
-      console.log('Adopt Request sent');
+      showToast(submitResponse.data.message, toast, 'success');
+      if (adoptMeModal) {
+        adoptMeModal.hide();
+      }
     }
   } catch (error) {
-    console.log('error', error);
+    showErrorToast(error);
   }
 });
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const showErrorToast = (error: any) => {
+  const message = showErrorResponse(error) || error;
+  showToast(message, toast, 'error');
+};

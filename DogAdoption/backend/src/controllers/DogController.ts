@@ -56,8 +56,9 @@ export const deleteDog = async (
   next: NextFunction
 ) => {
   try {
-    const dog = await DogService.deleteDog(parseInt(req.params.id));
-    res.json(dog);
+    const dogId = req.params.id;
+    await DogService.deleteDog(parseInt(dogId));
+    res.json({message:`Dog with id:${dogId} Deleted Successfully`});
   } catch (err) {
     next(err);
   }
@@ -72,20 +73,8 @@ export const updateDog = async (
     const dogId = parseInt(req.params.id);
     const dogData: Partial<DogModel> = req.body;
     const updatedDog = await DogService.updateDog(dogId, dogData);
-    res.json({ message: 'Dog updated successfully', updatedDog });
+    res.status(stat.ACCEPTED).json({ message: 'Dog updated successfully', updatedDog });
   } catch (err) {
     next(err);
   }
 };
-
-
-// const responseData = (Dog: DogModel | undefined) => {
-//   if (!Dog) return null;
-//   return {
-//     name: Dog.name,
-//     age: Dog.age,
-//     availability: Dog.availability,
-//     id: Dog.id,
-//     userid: Dog.userId,
-//   };
-// };

@@ -1,4 +1,7 @@
+import { showToast } from '../utils/Toast';
+
 const token = localStorage.getItem('Jwt') || '';
+const toast = document.getElementById('toast') as HTMLElement;
 
 // Function to check if the token is expired
 function isTokenExpired(token: string): boolean {
@@ -9,9 +12,6 @@ function isTokenExpired(token: string): boolean {
   const currentTime = Date.now() / 1000; // Current time in seconds
   return exp < currentTime;
 }
-
-
-
 
 // Updated validToken function to check for expiration
 const validToken = (): boolean => {
@@ -25,7 +25,7 @@ const validToken = (): boolean => {
 export function removeExpiredToken(): void {
   if (token && isTokenExpired(token)) {
     localStorage.removeItem('Jwt');
-    // Optionally, redirect to login page or show a message
+    showToast('Token has been expired', toast, 'warning');
   }
 }
 

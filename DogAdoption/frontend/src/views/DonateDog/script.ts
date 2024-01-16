@@ -3,11 +3,14 @@ import '../../assets/scss/style.scss';
 import displayNav from '../../components/Navbar/navbar';
 import http from '../../service/HttpClient';
 import { isLoggedIn } from '../../utils/utils';
+import { showToast } from '../../utils/Toast';
+import showErrorResponse from '../../utils/ErrorResponse';
 // Define a global variable to store the selected file
 let selectedFile: File | null = null;
 
 const navBar = document.getElementById('navbar-placeholder') as HTMLElement;
 const addDogForm = document.getElementById('form-addDog') as HTMLFormElement;
+const toast = document.getElementById('toast') as HTMLElement;
 
 window.onload = () => {
   displayNav(navBar, 'nav-donatedog');
@@ -44,7 +47,7 @@ function handleImageUpload(event: Event) {
 addDogForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!selectedFile) {
-    console.error('No file selected for upload');
+    showToast('Please select a file', toast, 'error');
     return;
   }
 
@@ -103,14 +106,24 @@ addDogForm.addEventListener('submit', async (e) => {
 
     // Check the response status
     if (submitResponse.status === HttpStatusCode.Accepted) {
-      console.log('Dog added successfully');
+      showToast(submitResponse.data.message, toast, 'success');
     }
 
     // Hide the loading spinner
     // loadingIndicator.style.display = 'none';
   } catch (error) {
-    console.error('Error uploading image:', error);
+    showErrorToast(error);
+    // Hide the loading spinner
+    // loadingIndicator.style.display = 'none';response.data.message,toast, 'error');
+    // Hide the loading spinner
+    // loadingIndicator.style.display = 'none';
     // Hide the loading spinner
     // loadingIndicator.style.display = 'none';
   }
 });
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const showErrorToast = (error: any) => {
+  const message = showErrorResponse(error) || error;
+  showToast(message, toast, 'error');
+};

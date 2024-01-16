@@ -32,7 +32,7 @@ export class AuthService {
     if (!validPassword) throw new UnauthenticatedError('Not Allowed');
 
     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET!, {
-      expiresIn: '1h',
+      expiresIn: '10s',
     });
     const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET!);
     refreshTokens.push(refreshToken);

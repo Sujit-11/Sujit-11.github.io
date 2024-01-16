@@ -5,134 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DogAdoption</title>
     <style>
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect) */
-.flip-card {
-  background-color: transparent;
-  width: 100%;
-  height: 324px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-}
+      .flip-card {
+        background-color: transparent;
+        width: 100%;
+        height: 324px;
+        border: 1px solid #f1f1f1;
+        perspective: 1000px;
+      }
 
-/* This container is needed to position the front and back side */
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
+      /* This container is needed to position the front and back side */
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
 
-/* Do a horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
+      /* Do a horizontal flip when you move the mouse over the flip box container */
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
 
-/* Position the front and back side */
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
+      /* Position the front and back side */
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+      }
 
-/* Style the front side (fallback if image is missing) */
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-}
+      /* Style the front side (fallback if image is missing) */
+      .flip-card-front {
+        background-color: #bbb;
+        color: black;
+      }
 
-/* Style the back side */
-.flip-card-back {
-  /* background-color: dodgerblue; */
-  color:black;
-  transform: rotateY(180deg);
-}
-
+      /* Style the back side */
+      .flip-card-back {
+        /* background-color: dodgerblue; */
+        color: black;
+        transform: rotateY(180deg);
+      }
     </style>
   </head>
   <body>
     <nav id="navbar-placeholder"></nav>
     <!-- AdoptMe Modal -->
-    <!-- <div
-      class="modal fade"
-      id="adoptionModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="adoptionModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="adoptionModalLabel">Adoption Form</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="adoptionForm">
-              <div class="form-group">
-                <label for="adopterName">Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="adopterName"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="adopterEmail">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="adopterEmail"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="adopterPhone">Phone</label>
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="adopterPhone"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="adoptionInterest">Interest in Adoption</label>
-                <textarea
-                  class="form-control"
-                  id="adoptionInterest"
-                  rows="3"
-                  required
-                ></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="submit" class="btn btn-primary" form="adoptionForm">
-              Submit
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div
       class="modal fade"
       id="adoptionModal"
@@ -153,24 +75,6 @@
           </div>
           <div class="modal-body">
             <form id="adoptionForm">
-              <div class="form-group">
-                <!-- <label for="adopterName">Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="adopterName"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="adopterEmail">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="adopterEmail"
-                  required
-                /> -->
-              </div>
               <div class="form-group">
                 <label for="adopterPhone">Your Number</label>
                 <input
@@ -212,6 +116,8 @@
         <!-- Dog cards will be inserted here by JavaScript -->
       </div>
     </div>
+
+    <div id="toast"></div>
 
     <script type="module" src="./script.ts"></script>
   </body>

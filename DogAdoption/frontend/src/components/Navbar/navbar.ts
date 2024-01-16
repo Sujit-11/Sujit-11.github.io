@@ -18,7 +18,6 @@ const displayNav = (placeholder: HTMLElement, active: string) => {
       const requestElement = document.getElementById('nav-requests');
       const donateDogElement = document.getElementById('nav-donatedog');
       const myDogElement = document.getElementById('nav-mydog');
-      // const profileElement = document.getElementById('profile-dropdown');
       const loginElement = document.getElementById('nav-login');
       const signupElement = document.getElementById('nav-signup');
       const logout = document.getElementById('btn-logout');
@@ -45,7 +44,6 @@ const displayNav = (placeholder: HTMLElement, active: string) => {
         donateDogElement?.classList.add('d-none');
         requestElement?.classList.add('d-none');
         myDogElement?.classList.add('d-none');
-        // profileElement?.classList.add('d-none');
         logout?.classList.add('d-none');
         loginElement?.classList.remove('d-none');
         signupElement?.classList.remove('d-none');

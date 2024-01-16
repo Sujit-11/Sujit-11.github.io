@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import HttpStatus from 'http-status-codes';
 import jwt from 'jsonwebtoken';
 import config from '../config/config';
 import { CustomRequest } from '../interface/CustomRequest';
@@ -11,7 +12,7 @@ export const authJwt = async (
 ) => {
   const req = expressReq as CustomRequest;
   const token = req.headers.authorization?.split(' ')[1];
-  if (!token) res.status(401).json({ message: 'Unauthorized' });
+  if (!token) res.status(HttpStatus.UNAUTHORIZED).json({ message: 'Unauthorized' });
   else {
     try {
       const decoded = jwt.verify(token!, config.jwt.accessTokenSecret!);
@@ -21,7 +22,7 @@ export const authJwt = async (
       res.locals.user = getUser;
       next();
     } catch (error) {
-      res.status(401).send({
+      res.status(HttpStatus.UNAUTHORIZED).send({
         message: 'Unauthorized',
         error,
       });
