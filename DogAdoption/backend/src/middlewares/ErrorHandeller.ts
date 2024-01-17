@@ -1,7 +1,7 @@
 import HttpStatus from 'http-status-codes';
 import { NextFunction, Request, Response } from 'express';
 
-import UnauthenticatedError from '../error/UnauthenticatedError';
+import UnauthenticatedError from '../error/unauthenticatedError';
 
 import loggerWithNameSpace from '../utils/logger';
 import BadRequestError from '../error/badRequestError';
