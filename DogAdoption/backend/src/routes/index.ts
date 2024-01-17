@@ -3,7 +3,6 @@ import userRoutes from './UserRoutes';
 import authRoutes from './AuthRoute';
 import dogRoutes from './DogRoute';
 import adoptRoutes from './AdoptReqRoute';
-// import { authJwt } from '../middlewares/Auth';
 
 const router = Router();
 

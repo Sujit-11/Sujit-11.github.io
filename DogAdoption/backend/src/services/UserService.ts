@@ -1,4 +1,4 @@
-import * as userRepo from "../Repositories/UserRepo";
+import * as userRepo from '../Repositories/UserRepo';
 
 export class UserService {
   static getUsers() {

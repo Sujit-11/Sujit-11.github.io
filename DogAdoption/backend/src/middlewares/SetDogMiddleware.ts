@@ -6,7 +6,6 @@ export const setDogMiddleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  // Assuming you have a way to get the dog's ID from the request
   const dogId = +req.params.id;
   console.log('req:' + dogId);
   try {

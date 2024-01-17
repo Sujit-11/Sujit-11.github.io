@@ -1,6 +1,6 @@
-import { Knex } from "knex";
+import { Knex } from 'knex';
 
-import config from "./config/config";
+import config from './config/config';
 
 const { database: dbConfig } = config;
 
@@ -15,19 +15,17 @@ export const baseKnexConfig = {
   },
 };
 
-
 const knexConfig: Knex.Config = {
   ...baseKnexConfig,
   migrations: {
-    directory: "./database/migrations",
-    stub: "./stubs/migration.stub",
-    tableName: "migrations",
+    directory: './database/migrations',
+    stub: './stubs/migration.stub',
+    tableName: 'migrations',
   },
   seeds: {
-    directory: "./database/seeds",
-    stub: "./stubs/seed.stub",
+    directory: './database/seeds',
+    stub: './stubs/seed.stub',
   },
 };
-
 
 export default knexConfig;

@@ -1,7 +1,7 @@
 import HttpStatus from 'http-status-codes';
 import { NextFunction, Request, Response } from 'express';
 
-import UnauthenticatedError from '../error/unauthenticatedError';
+import UnauthenticatedError from '../error/UnauthenticatedError';
 
 import loggerWithNameSpace from '../utils/logger';
 import BadRequestError from '../error/badRequestError';
@@ -35,7 +35,6 @@ export function genericErrorHandler(
   if (err instanceof UnauthenticatedError) {
     return res.status(HttpStatus.UNAUTHORIZED).json({ message: err.message });
   }
-
 
   return res
     .status(HttpStatus.INTERNAL_SERVER_ERROR)
